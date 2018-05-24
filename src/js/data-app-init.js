@@ -33,6 +33,14 @@ ProtoGraph.initDataApp = function () {
             {
                 "alias": "Party in Power",
                 "propName": "party_in_power"
+            },
+            {
+                "alias": "Type of Assault",
+                "propName": "type_of_assault"
+            },
+            {
+                "alias": "Source",
+                "propName": "was_motivated_by_religious_identity"
             }
         ]
     });

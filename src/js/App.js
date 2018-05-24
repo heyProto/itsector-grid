@@ -40,9 +40,6 @@ class App extends React.Component {
           filterJSON;
 
         data = card.data;
-        console.log(data, "data")
-
-        console.log(this.state.filters)
 
         filters = this.state.filters.map((filter) => {
           return {
@@ -162,21 +159,20 @@ class App extends React.Component {
 
 
   sortObject(obj, filter) {
-    console.log(obj, filter, "sort obj")
     var arr = [];
     for (var prop in obj) {
       if (obj.hasOwnProperty(prop)) {
         arr.push({
           'name': `${prop}`,
-          'renderName': this.renderRating,
+          'renderName': `${prop}`,
           'value': !isNaN(+prop) ? +prop : prop,
           'count': obj[prop].length
         });
       }
     }
     arr.sort(function (a, b) {
-      let key1 = a.value,
-        key2 = b.value;
+      let key1 = a.count,
+        key2 = b.count;
       if (key1 > key2) {
         return -1;
       } else if (key1 == key2) {
@@ -333,10 +329,11 @@ class App extends React.Component {
           </div>
           <div className="proto-col col-12 protograph-app-map-and-list">
               <div className="tabs-area">
-                <div className="single-tab active-tab" id='map-tab' data-href='#map-area' >Map</div>
-                <div className="single-tab" id='list-tab' data-href='#list-area'>List</div>
+                <div className="single-tab active-tab" id='map-tab' data-href='#map-area' >MAP</div>
+                <div className="single-tab" id='list-tab' data-href='#list-area'>LIST</div>
               </div>
               <div className="tabs map-area active-area" id='map-area'>
+                <div className="map-hint-text">Click on the circle to see details of the incident</div>
                 <Map
                   dataJSON={this.state.filteredDataJSON}
                   topoJSON={this.state.topoJSON}

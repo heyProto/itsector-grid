@@ -80,7 +80,7 @@ class ListCards extends React.Component {
                 <div className="proto-card-date">{card.date}</div>
                 <div className="proto-card-location">{card.district}, {card.state}</div>
                 <div className="proto-context-div">
-                  <div className="proto-context-title">CONTEXT</div>
+                  <div className="proto-context-title">CONTEXT/BIAS INDICATOR</div>
                   <div className="proto-context">{card.pretext_to_incident}</div>
                 </div>
               </div>

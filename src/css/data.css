@@ -414,8 +414,8 @@
   color: #333;
   padding: 11px;
   margin-right: auto;
-  /*transform: translate(-50%, 0);*/
-  /*margin-left: 50%;*/
+  font-family: cabin;
+  font-size: 12px;
   margin-bottom: 50px;
 }
 #show-more-cards:focus {
@@ -730,7 +730,14 @@
   transform: translate(-50%, -50%)
 }
 
-
+.map-hint-text{
+  position: absolute;
+  right: 0;
+  color: #afacac;
+  font-size: 14px;
+  font-style: italic;
+  font-family: cabin;
+}
 
 
 @media only screen and (max-width: 450px ) {

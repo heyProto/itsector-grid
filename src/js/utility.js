@@ -17,7 +17,7 @@ function highlightCircle(name, data) {
         allCircles[j].r.baseVal.value = 4
     }
     for (let i = 0; i < getCircles.length; i++) {
-        getCircles[i].r.baseVal.value = 5
+        getCircles[i].r.baseVal.value = 6
     }
 }
 

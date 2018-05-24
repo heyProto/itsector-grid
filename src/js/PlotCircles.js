@@ -10,7 +10,7 @@ class PlotCircles extends React.Component {
       const circles = this.props.dataJSON.map((point, i) => {
         return(
           <circle id="map_circles"
-            className={`map-circles circle-${point.state}-${point.district}`}
+            className={`map-circles circle-${point.district}-${point.state}`}
             key={i} 
             cx={this.props.projection([point.longitude, point.latitude])[0]} 
             cy={this.props.projection([point.longitude, point.latitude])[1]} 
