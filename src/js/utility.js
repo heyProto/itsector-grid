@@ -31,7 +31,6 @@ function groupBy(data, column) {
         key;
     switch (typeof column) {
         case "string":
-            console.log(data)
             data.forEach(datum => {
                 key = datum[column] ? datum[column] : "Not available";
                 if (grouped_data[key]) {

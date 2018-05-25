@@ -40,7 +40,11 @@ ProtoGraph.initDataApp = function () {
             },
             {
                 "alias": "Source",
-                "propName": "was_motivated_by_religious_identity"
+                "propName": "type_of_source"
+            },
+            {
+                "alias": "Is FIR resgistered?",
+                "propName": "is_fir_registered"
             }
         ]
     });
