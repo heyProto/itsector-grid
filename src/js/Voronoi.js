@@ -19,20 +19,21 @@ class Voronoi extends React.Component {
     }
   }
 
-  handleOnClick(e, card, name) {
-    let props = this.props; 
-    $('#proto-modal').modal('show');
-    $('#proto-modal').on('hidden.bs.modal', function(){
-      let element = document.querySelector("#proto-embed-card iframe");
-      element.parentNode.removeChild(element);
-    })
-    if (this.props.mode === 'laptop') {
-      let pro = new ProtoEmbed.initFrame(document.getElementById("proto-embed-card"), card.iframe_url, 'laptop')
-    } else {
-      let pro = new ProtoEmbed.initFrame(document.getElementById("proto-embed-card"), card.iframe_url, 'mobile', true)
-    } 
-    $('.modal-close').click(function(){
-      $("#proto-modal").modal('hide');
+  componentDidUpdate(prevProps, prevState) {
+    let cards = [].slice.call(document.querySelectorAll('.voronoi-map')),
+      newCards;
+
+    newCards = cards.filter((e,i) => {
+      return !e.querySelector('iframe');
+    });
+
+    newCards.forEach((element,i) => {
+      let iframe_url = element.getAttribute('data-iframe_url');
+      setTimeout(function () {
+        new ProtoEmbed.initFrame(element, iframe_url, "grid", {
+          headerJSON: ProtoGraph.headerJSON
+        });
+      }, 0);
     });
   }
 
@@ -60,8 +61,10 @@ class Voronoi extends React.Component {
       return(
         <path style={styles}
           d={`M ${d.join("L")} Z`}
-          className={`voronoi ${d.data.view_cast_id}-${d.data.area}`}
-          onClick={(e) => this.handleOnClick(e, d.data, name)}
+          className={`voronoi-map protograph-trigger-modal`}
+          data-iframe_url={d.data.iframe_url}
+          data-district_code={d.data.district}
+          onClick={this.props.showModal}
           onMouseMove={(e) => this.handleMouseOver(e, d.data, name)}
           onTouchStart={(e) => this.handleMouseOver(e, d.data, name)}
           >

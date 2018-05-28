@@ -739,6 +739,9 @@
   font-family: cabin;
 }
 
+.protograph-grid-card iframe {
+  display: none;
+}
 
 @media only screen and (max-width: 450px ) {
   body {
