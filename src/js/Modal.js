@@ -29,11 +29,15 @@ class Modal extends React.Component {
       <ReactModal
         isOpen={this.props.showModal}
         onAfterOpen={this.afterOpen}
+        onRequestClose={((e) => {
+          this.handleRequestClose(e);
+          this.props.closeModal(e);
+        })}
         closeTimeoutMS={0}
         overlayClassName="protograph-modal-overlay"
         className="proto-col col-7 protograph-modal"
         shouldFocusAfterRender={false}
-        shouldCloseOnOverlayClick={false}
+        shouldCloseOnOverlayClick={true}
         shouldCloseOnEsc={false}
         shouldReturnFocusAfterClose={true}
         role="dialog"
