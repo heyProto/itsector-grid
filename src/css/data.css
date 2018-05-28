@@ -419,6 +419,7 @@
   font-family: cabin;
   font-size: 12px;
   margin-bottom: 50px;
+  cursor: pointer;
 }
 #show-more-cards:focus {
   outline: 0;
