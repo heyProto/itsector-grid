@@ -16,16 +16,16 @@ class ListCards extends React.Component {
     this.state = stateVar;
   }
 
-  componentDidMount(prevProps, prevState) {
-    $('.protograph-grid-card').each((i, element) => {
-      let iframe_url = element.getAttribute('data-iframe_url');
-      setTimeout(function () {
-        new ProtoEmbed.initFrame(element, iframe_url, "grid", {
-          headerJSON: ProtoGraph.headerJSON
-        });
-      }, 0);
-    });
-  }
+  // componentDidMount(prevProps, prevState) {
+  //   $('.protograph-grid-card').each((i, element) => {
+  //     let iframe_url = element.getAttribute('data-iframe_url');
+  //     setTimeout(function () {
+  //       new ProtoEmbed.initFrame(element, iframe_url, "grid", {
+  //         headerJSON: ProtoGraph.headerJSON
+  //       });
+  //     }, 0);
+  //   });
+  // }
 
   componentWillReceiveProps(nextProps) {
     this.setState({
@@ -33,23 +33,23 @@ class ListCards extends React.Component {
     });
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    let cards = [].slice.call(document.querySelectorAll('.protograph-grid-card')),
-      newCards;
+  // componentDidUpdate(prevProps, prevState) {
+    // let cards = [].slice.call(document.querySelectorAll('.protograph-grid-card')),
+    //   newCards;
 
-    newCards = cards.filter((e,i) => {
-      return !e.querySelector('iframe');
-    });
+    // newCards = cards.filter((e,i) => {
+    //   return !e.querySelector('iframe');
+    // });
 
-    newCards.forEach((element,i) => {
-      let iframe_url = element.getAttribute('data-iframe_url');
-      setTimeout(function () {
-        new ProtoEmbed.initFrame(element, iframe_url, "grid", {
-          headerJSON: ProtoGraph.headerJSON
-        });
-      }, 0);
-    });
-  }
+    // newCards.forEach((element,i) => {
+    //   let iframe_url = element.getAttribute('data-iframe_url');
+    //   setTimeout(function () {
+    //     new ProtoEmbed.initFrame(element, iframe_url, "grid", {
+    //       headerJSON: ProtoGraph.headerJSON
+    //     });
+    //   }, 0);
+    // });
+  // }
 
   loadMoreCard() {
     let size = this.props.dataJSON.length;
