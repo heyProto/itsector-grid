@@ -27,6 +27,10 @@ ProtoGraph.initDataApp = function () {
                 "propName": "year"
             },
             {
+                "alias": "State",
+                "propName": "state"
+            },
+            {
                 "alias": "Context/Bias Indicator",
                 "propName": "pretext_to_incident"
             },
