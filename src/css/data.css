@@ -310,6 +310,7 @@
   padding: 5px 10px;
   border-radius: 5px;
   width: fit-content;
+  width: -moz-fit-content;
   color: #cd1713;
   font-family: cabin;
   font-size: 12px;
