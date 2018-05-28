@@ -5,8 +5,8 @@ ProtoGraph.initDataApp = function () {
 
     x.init({
         selector: document.querySelector('#card-list-div'),
-        dataURL: 'https://duxxuzyhk2mdg.cloudfront.net/a699bc34ceecd1e7a4fde439/index.json',
-        topoURL: 'india-topo.json',
+        dataURL: streams.Grid.url,
+        topoURL: 'https://duxxuzyhk2mdg.cloudfront.net/data/india-topo.json',
         chartOptions: {
             height: 700,
             defaultCircleColor: '#cd1713'
