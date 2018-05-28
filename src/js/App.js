@@ -218,13 +218,21 @@ class App extends React.Component {
         });
       });
     }
+    let district = e.target.closest('.protograph-trigger-modal').getAttribute('data-district_code'),
+      data = this.state.dataJSON.filter((k, i) => {
+        console.log()
+        return k.district === district;
+      })[0];
+      console.log(data, "data")
     this.setState({
+      iframeURL: data.iframe_url,
       showModal: true
     })
   }
 
   closeModal() {
     this.setState({
+      iframeURL: undefined,
       showModal: false
     })
   }

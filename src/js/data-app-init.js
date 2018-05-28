@@ -5,7 +5,7 @@ ProtoGraph.initDataApp = function () {
 
     x.init({
         selector: document.querySelector('#card-list-div'),
-        dataURL: 'hatecrime.json',
+        dataURL: 'https://duxxuzyhk2mdg.cloudfront.net/a699bc34ceecd1e7a4fde439/index.json',
         topoURL: 'india-topo.json',
         chartOptions: {
             height: 700,

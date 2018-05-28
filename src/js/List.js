@@ -20,9 +20,9 @@ class ListCards extends React.Component {
     $('.protograph-grid-card').each((i, element) => {
       let iframe_url = element.getAttribute('data-iframe_url');
       setTimeout(function () {
-        // new ProtoEmbed.initFrame(element, iframe_url, "grid", {
-        //   headerJSON: ProtoGraph.headerJSON
-        // });
+        new ProtoEmbed.initFrame(element, iframe_url, "grid", {
+          headerJSON: ProtoGraph.headerJSON
+        });
       }, 0);
     });
   }
@@ -44,9 +44,9 @@ class ListCards extends React.Component {
     newCards.forEach((element,i) => {
       let iframe_url = element.getAttribute('data-iframe_url');
       setTimeout(function () {
-        // new ProtoEmbed.initFrame(element, iframe_url, "grid", {
-        //   headerJSON: ProtoGraph.headerJSON
-        // });
+        new ProtoEmbed.initFrame(element, iframe_url, "grid", {
+          headerJSON: ProtoGraph.headerJSON
+        });
       }, 0);
     });
   }
@@ -69,8 +69,8 @@ class ListCards extends React.Component {
         let class_name = (((i+1)% this.state.cardsInRow) == 0) ? "protograph-card div-without-margin-right" : "protograph-card";
         return(
           <div
-            key={`${card.district}_i_${card.date}`}
-            id={`protograph-grid-card-${card.district}-${card.date}`}
+            key={`${card.state}_i_${card.date}`}
+            id={`protograph-grid-card-${card.state}-${card.date}`}
             data-viewcast_id={card.view_cast_id}
             className={`protograph-grid-card protograph-trigger-modal ${class_name}`}
             data-iframe_url={card.iframe_url}

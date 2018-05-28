@@ -12,8 +12,9 @@ class Modal extends React.Component {
   afterOpen() {
     if (this.props.iframeURL) {
       setTimeout((e) => {
-
-        // new ProtoEmbed.initFrame(document.getElementById('protograph_modal_card'), this.props.iframeURL, this.props.mode);
+        new ProtoEmbed.initFrame(document.getElementById('protograph_modal_card'), this.props.iframeURL, this.props.mode, {
+          headerJSON: ProtoGraph.headerJSON
+        });
       }, 0);
     }
     document.body.style['overflow-y'] = 'hidden';
@@ -51,12 +52,7 @@ class Modal extends React.Component {
         >
           <div className="protograph-close-text"><i className="remove icon"></i></div>
         </div>
-        <div id="protograph_modal_card">
-          <div style={{position:'relative', height:0, paddingBottom: '56.21%'}}>
-            <iframe src="https://www.youtube.com/embed/GuH9mmJqtBs?ecver=2" style={{position: 'absolute', width:'100%', height:'100%', left:0, borderWidth: 0}}>
-            </iframe>
-          </div>
-        </div>
+        <div id="protograph_modal_card"></div>
       </ReactModal>
     )
   }
