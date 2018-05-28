@@ -278,8 +278,11 @@ export default class Filter extends React.Component {
     let filterParams = this.state.filterParams,
       dataJSON = this.state.dataJSON;
 
+    // console.log(filterParams, "filterParams");
+
     filterParams.forEach((e, i) => {
       dataJSON = dataJSON.filter((f, j) => {
+        // console.log(this.getDataValue(f, e), e.value, "value")
         return this.getDataValue(f, e) === e.value
       });
     });

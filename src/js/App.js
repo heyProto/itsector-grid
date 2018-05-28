@@ -165,7 +165,7 @@ class App extends React.Component {
         arr.push({
           'name': `${prop}`,
           'renderName': `${prop}`,
-          'value': !isNaN(+prop) ? +prop : prop,
+          'value': prop,
           'count': obj[prop].length
         });
       }
@@ -185,6 +185,7 @@ class App extends React.Component {
   }
 
   onChange(filteredData) {
+    // console.log(filteredData, "filteredData")
     let filtDat = this.state.filters.map((filter) => {
       return {
         name: filter.alias,
@@ -223,7 +224,7 @@ class App extends React.Component {
         console.log()
         return k.district === district;
       })[0];
-      console.log(data, "data")
+      // console.log(data, "data")
     this.setState({
       iframeURL: data.iframe_url,
       showModal: true
@@ -317,6 +318,7 @@ class App extends React.Component {
       return this.renderLoader();
     } else {
       $('.social-share-icons').css("display", "block")
+      // console.log(this.state.filteredDataJSON, "state.filteredDataJSON")
       return (
         <div className="banner-area">
           <div className="proto-col col-4 filter-col protograph-filter-area">
