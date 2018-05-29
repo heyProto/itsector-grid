@@ -31,15 +31,15 @@ ProtoGraph.initDataApp = function () {
                 "propName": "state"
             },
             {
-                "alias": "Context/Bias Indicator",
+                "alias": "Context/Bias indicator",
                 "propName": "pretext_to_incident"
             },
             {
-                "alias": "Party in Power",
+                "alias": "Party in power",
                 "propName": "party_in_power"
             },
             {
-                "alias": "Type of Assault",
+                "alias": "Type of assault",
                 "propName": "type_of_assault"
             },
             {

@@ -1,4 +1,5 @@
 import React from 'react';
+import {groupBy} from './utility.js';
 
 export default class Filter extends React.Component {
 
@@ -31,12 +32,13 @@ export default class Filter extends React.Component {
     this.unRegisterFilter = this.unRegisterFilter.bind(this);
   }
 
-  setIDs(previous_ids, items) {
+  setIDs(previous_ids, items, parent_id) {
     return items.map((e, i) => {
       e.id = this.uuidv4();
+      e.parent_id = parent_id;
       e.parent_ids = [...previous_ids, i];
       if(e.filters && e.filters.length > 0) {
-        e.filters = this.setIDs(e.parent_ids, e.filters)
+        e.filters = this.setIDs(e.parent_ids, e.filters, e.id)
       }
       return e;
     });
@@ -276,19 +278,39 @@ export default class Filter extends React.Component {
 
   filterData() {
     let filterParams = this.state.filterParams,
-      dataJSON = this.state.dataJSON;
+      dataJSON = this.state.dataJSON,
+      filteredData = [],
+      filterGroup,
+      filterGroupKeys;
 
-    // console.log(filterParams, "filterParams");
+    filterGroup = groupBy(filterParams, 'parent_id');
+    filterGroupKeys = Object.keys(filterGroup);
 
-    filterParams.forEach((e, i) => {
-      dataJSON = dataJSON.filter((f, j) => {
-        // console.log(this.getDataValue(f, e), e.value, "value")
-        return this.getDataValue(f, e) === e.value
+    filterGroupKeys.forEach(group => {
+      let orResults = [];
+      filterGroup[group].forEach((e, i) => {
+        let temp = dataJSON.filter((f, j) => {
+          return this.getDataValue(f, e) === e.value
+        });
+        orResults = orResults.concat(temp);
       });
+      if (!filteredData.length) {
+        filteredData = orResults;
+      } else {
+        filteredData = filteredData.filter((e, i) => {
+          return orResults.find((f, j) => {
+            return f.u_id === e.u_id
+          })
+        })
+      }
     });
 
+    if (filterParams.length === 0 && filteredData.length <= 0) {
+      filteredData = this.state.dataJSON;
+    }
+
     this.setState({
-      filteredData: dataJSON
+      filteredData: filteredData
     }, this.onChange);
   }
 
@@ -300,6 +322,7 @@ export default class Filter extends React.Component {
 
     for (let i = 1; i < parent_ids.length - 1; i++) {
       data = data[activeTabJSON.filters[parent_ids[i]].key]
+      // console.log(data, "data in filters")
       activeTabJSON = activeTabJSON.filters[parent_ids[i]];
     }
     return data;

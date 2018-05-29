@@ -21,7 +21,8 @@ class App extends React.Component {
       showModal: false,
       card: undefined,
       mode: window.innerWidth <= 500 ? 'col4' : 'col7',
-      filterConfigurationJSON: this.props.filterConfigurationJSON
+      filterConfigurationJSON: this.props.filterConfigurationJSON,
+      obj: {}
     }
     this.ListReference = undefined;
     this.showModal = this.showModal.bind(this);
@@ -37,15 +38,21 @@ class App extends React.Component {
     ]).then(axios.spread((card, topo) => {
         let data,
           filters,
-          filterJSON;
+          filterJSON,
+          keyValue,
+          groupBy;
 
         data = card.data;
+        data.forEach((e,i) => { e.u_id = (i+1) });
 
         filters = this.state.filters.map((filter) => {
+          groupBy = Utils.groupBy(data, filter.propName)
+          keyValue = this.findKeyValue(groupBy)
           return {
             name: filter.alias,
             key: filter.propName,
-            filters: this.sortObject(Utils.groupBy(data, filter.propName), filter)
+            filters: this.sortObject(this.createObj(groupBy, filter.propName, keyValue), filter)
+            // filters: this.sortObject(Utils.groupBy(data, filter.propName), filter)
           }
         });
 
@@ -60,7 +67,8 @@ class App extends React.Component {
           dataJSON: data,
           filteredDataJSON: data,
           topoJSON: topo.data,
-          filterJSON: filterJSON
+          filterJSON: filterJSON,
+          keyValue: keyValue
         }, (e) => {
           this.initF3BTWShareLinks();
           var that = this;
@@ -85,13 +93,6 @@ class App extends React.Component {
     }));
 
     let dimension = this.getScreenSize();
-
-    if(this.props.mode === 'laptop') {
-      // $('.filter-col').sticky({ getWidthFrom: '.col-4'});
-      // $('.banner-area .sticky-wrapper').css('float', 'left');
-      // $('.banner-area .sticky-wrapper').css("display", 'inline-block');
-    }
-
     //Polyfill for element.closest in old browsers.
     if (window.Element && !Element.prototype.closest) {
       Element.prototype.closest =
@@ -106,6 +107,30 @@ class App extends React.Component {
           return el;
         };
     }
+  }
+
+  findKeyValue(group){
+    let arr_of_values = [];
+    for (let value in group){
+      arr_of_values.push(value)
+    }
+    // console.log(arr_of_values,"arr_of_values");
+    return arr_of_values;   
+  }
+
+  createObj(group, param, keyValue){
+    let obj = {},
+      arr1 = [];
+    
+    for (let i=0; i<keyValue.length; i++){
+      if (group[keyValue[i]] === undefined){
+        obj[keyValue[i]] = []
+      } else {
+        obj[keyValue[i]] = group[keyValue[i]]
+      }
+    }    
+    // console.log(obj, "object")   
+    return obj;
   }
 
   initF3BTWShareLinks() {
@@ -125,12 +150,6 @@ class App extends React.Component {
   }
 
   componentDidUpdate() {
-    if(this.props.mode === 'laptop') {
-      // $('.filter-col').sticky({getWidthFrom: '.col-4'});
-      // $('.banner-area .sticky-wrapper').css('float', 'left');
-      // $('.banner-area .sticky-wrapper').css("display", 'inline-block');
-    }
-
     $(".tabs-area .single-tab").on("click", function(e){
       $(".single-tab").removeClass("active-tab");
       $(this).addClass("active-tab");
@@ -164,9 +183,8 @@ class App extends React.Component {
       if (obj.hasOwnProperty(prop)) {
         arr.push({
           'name': `${prop}`,
-          'renderName': `${prop}`,
           'value': prop,
-          'count': obj[prop].length
+          'count': obj[prop] === undefined ? 0 : obj[prop].length
         });
       }
     }
@@ -186,13 +204,20 @@ class App extends React.Component {
 
   onChange(filteredData) {
     // console.log(filteredData, "filteredData")
+    let groupBy, keyValue;
     let filtDat = this.state.filters.map((filter) => {
+      groupBy = Utils.groupBy(filteredData, filter.propName)
+      keyValue = this.findKeyValue(Utils.groupBy(this.state.dataJSON, filter.propName))
+      // console.log(groupBy, "groupBy")
       return {
         name: filter.alias,
         key: filter.propName,
-        filters: this.sortObject(Utils.groupBy(filteredData, filter.propName), filter)
+        filters: this.sortObject(this.createObj(groupBy, filter.propName, keyValue), filter)
+        // filters: this.sortObject(Utils.groupBy(filteredData, filter.propName), filter)
       }
     });
+
+    // console.log(filtDat, filteredData, "on chnage filteredData")
 
     let filterJSON = [
       {
@@ -221,7 +246,6 @@ class App extends React.Component {
     }
     let district = e.target.closest('.protograph-trigger-modal').getAttribute('data-district_code'),
       data = this.state.dataJSON.filter((k, i) => {
-        console.log()
         return k.district === district;
       })[0];
       // console.log(data, "data")
