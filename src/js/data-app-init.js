@@ -6,7 +6,7 @@ ProtoGraph.initDataApp = function () {
     x.init({
         selector: document.querySelector('#card-list-div'),
         dataURL: streams.Grid.url,
-        topoURL: 'https://duxxuzyhk2mdg.cloudfront.net/data/india-topo.json',
+        topoURL: 'https://p.factchecker.in/data/india-topo.json',
         chartOptions: {
             height: 700,
             defaultCircleColor: ProtoGraph.site['house_colour']
@@ -31,7 +31,7 @@ ProtoGraph.initDataApp = function () {
                 "propName": "state"
             },
             {
-                "alias": "Context/Bias indicator",
+                "alias": "Context/bias indicator",
                 "propName": "pretext_to_incident"
             },
             {
@@ -47,8 +47,12 @@ ProtoGraph.initDataApp = function () {
                 "propName": "type_of_source"
             },
             {
-                "alias": "Is FIR resgistered?",
+                "alias": "Is FIR registered?",
                 "propName": "is_fir_registered"
+            },
+            {
+                "alias": 'Is Cross FIR registered?',
+                "propName": "is_cross_fir_registered"
             }
         ]
     });
