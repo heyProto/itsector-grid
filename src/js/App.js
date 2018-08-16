@@ -233,6 +233,7 @@ class App extends React.Component {
   }
 
   showModal(e) {
+    e.persist();
     if (window.ga) {
       window.ga(function(){
         var tracker = ga.getAll()[0].get('name');
@@ -244,13 +245,9 @@ class App extends React.Component {
         });
       });
     }
-    let district = e.target.closest('.protograph-trigger-modal').getAttribute('data-district_code'),
-      data = this.state.dataJSON.filter((k, i) => {
-        return k.district === district;
-      })[0];
-      // console.log(data, "data")
+
     this.setState({
-      iframeURL: data.iframe_url,
+      iframeURL: e.target.dataset.iframe_url,
       showModal: true
     })
   }
