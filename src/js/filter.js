@@ -290,6 +290,9 @@ export default class Filter extends React.Component {
       let orResults = [];
       filterGroup[group].forEach((e, i) => {
         let temp = dataJSON.filter((f, j) => {
+          if(Array.isArray(this.getDataValue(f,e))){
+            return this.getDataValue(f,e).indexOf(e.value) !== -1
+          }
           return this.getDataValue(f, e) === e.value
         });
         orResults = orResults.concat(temp);

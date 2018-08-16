@@ -37,10 +37,14 @@
         <meta name="twitter:site" content="<%= site.seo_name %>">
         <meta name="twitter:url" content="<%= page.html_key %>">
         <meta name="twitter:title" content="<%= page.headline %>">
+        <% if (page.share_text_facebook) { %>
+            <meta property="og:description" content="<%= page.share_text_facebook %>" />
+        <% } %>
+        <% if (page.share_text_twitter) { %>
+            <meta name="twitter:description" content="<%= page.share_text_twitter %>" />
+        <% } %>
         <% if (page.meta_description) { %>
             <meta name="description" content="<%= page.meta_description %>" />
-            <meta property="og:description" content="<%= page.meta_description %>">
-            <meta name="twitter:description" content="<%= page.meta_description %>">
         <% } %>
         <% if (page.cover_image_url) { %>
             <meta property="og:image" content="<%= page.cover_image_url %>">
@@ -139,6 +143,27 @@
             <div class="protograph-app-filter-icon" id="protograph_filter_icon">&#9776;</div>
             <div class="protograph-app-filter-icon protograph-app-filter-close-button" id="protograph_filter_close_icon"><i class="remove icon"></i></div>
         </div>
+        <div class="proto-col col-16">
+            <div class="col-16-story-card-credits">
+                <div id='credits_container'>
+                    <% major_stream_blockquotes[streams_mapping['credits'].title].forEach(function(e) { %>
+                        <div id="<%= e[0]%>">
+                            <%- e[1] %>
+                        </div>
+                    <% }) %>
+                    <% Object.keys(streams_mapping['credits'].ads).forEach(function(e, i){ %>
+                        <% if (e > major_stream_blockquotes[streams_mapping['credits'].title].length) { %>
+                            <div id="<%= streams_mapping['credits'].ads[e].div_id %>" style= "height: <%= streams_mapping['credits'].ads[e].height %>px; width:1260px;">
+                                    <script>
+                                    googletag.cmd.push(function() { googletag.display("<%= streams_mapping['credits'].ads[e].div_id %>"); });
+                                    </script>
+                            </div>
+                            <div style='margin-bottom: 20px'></div>
+                        <% } %>
+                    <% })%>
+                </div>
+            </div>
+        </div>
         <div class="proto-footer">
             <div class="footer-content-area">
                 <img src="https://cdn.protograph.pykih.com/Assets/proto-app/img/arrow-left.png" class="left-arrow" id="proto-footer-prev">
@@ -148,7 +173,7 @@
                 </div>
                 <img src="https://cdn.protograph.pykih.com/Assets/proto-app/img/arrow-right.png" class="right-arrow" id='proto-footer-next'>
                 <div class="privacy-details">
-                    <span class="footer-link light-link">About Proto</span>
+                    <span class="footer-link light-link">Powered by Proto</span>
                     <span class="light-link dot-seprater">&#8231;</span>
                     <span class="footer-link light-link">Terms</span>
                     <span class="light-link dot-seprater">&#8231;</span>
@@ -160,7 +185,7 @@
             <i class="angle up icon"></i>
         </div>
         <% let page_object = {}; %>
-        <% ["headline", "cover_image_url", "cover_image_url_7_column"].forEach(function(e){ %>
+        <% ["headline", "cover_image_url", "cover_image_url_7_column", "summary", "id"].forEach(function(e){ %>
             <% page_object[e] = page[e]; %>
         <% }); %>
         <script>

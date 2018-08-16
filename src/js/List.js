@@ -69,7 +69,6 @@ class ListCards extends React.Component {
         let class_name = (((i+1)% this.state.cardsInRow) == 0) ? "protograph-card div-without-margin-right" : "protograph-card";
         return(
             <div
-              key={`${card.state}_i_${card.date}`}
               id={`protograph-grid-card-${card.state}-${card.date}`}
               onClick={this.props.showModal}
               data-viewcast_id={card.view_cast_id}
