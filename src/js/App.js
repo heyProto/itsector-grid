@@ -359,7 +359,7 @@ class App extends React.Component {
               dataJSON={this.state.filteredDataJSON}
               filterJSON={this.state.filterJSON}
               onChange={(e) => {this.onChange(e);}}
-              hintText=""
+              hintText="Select a parameter to filter by its value."
             />
           </div>
           <div className="proto-col col-12 protograph-app-map-and-list">
