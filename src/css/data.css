@@ -1,4 +1,14 @@
 /* Old jaljagran-style.css  */
+@font-face {
+  font-family: AvenirLTStd-Book;
+  src: url("https://cdn.protograph.pykih.com/lib/AvenirLTStd-Book.otf") format("opentype");
+}
+
+@font-face {
+  font-family: Avenir-Bold;
+  src: url("https://cdn.protograph.pykih.com/lib/AEH.ttf") format("opentype");
+}
+
 .cover-image {
   background-image: url("../../../img/cover-image.png");
   background-repeat: none;
@@ -131,7 +141,7 @@
 
 .single-tab {
   font-size: 16px;
-  font-family: cabin;
+  font-family: AvenirLTStd-Book;
   border-bottom: 3px solid white;
   display: inline-block;
   padding: 12px 25px 12px;
@@ -210,7 +220,7 @@
 }
 .zoom-out-button{
   font-size: 12px;
-  font-family: cabin;
+  font-family: AvenirLTStd-Book;
   padding: 7px 15px;
   background: #efefef;
   border-radius: 5px;
@@ -245,7 +255,7 @@
   position: absolute;
   top: 0px;
   right: 0px;
-  font-family: cabin;
+  font-family: AvenirLTStd-Book;
   font-size: 12px;
   color: rgba(0,0,0,0.75);
 }
@@ -312,7 +322,7 @@
   width: fit-content;
   width: -moz-fit-content;
   color: #cd1713;
-  font-family: cabin;
+  font-family: AvenirLTStd-Book;
   font-size: 12px;
   letter-spacing: 1px;
   font-weight: lighter;
@@ -320,7 +330,7 @@
   border: 1px solid #cd1713;
 }
 .proto-card-location{
-  font-family: bitter;
+  font-family: Avenir-Bold;
   font-weight: 600;
 }
 .proto-context-div{
@@ -328,12 +338,12 @@
   position: absolute;
 }
 .proto-context{
-  font-family: cabin;
+  font-family: AvenirLTStd-Book;
   font-size: 14px;
 }
 .proto-context-title{
   font-size: 10px;
-  font-family: cabin;
+  font-family: AvenirLTStd-Book;
   color: grey;
   letter-spacing: 1px;
   margin-bottom: 5px;
@@ -342,7 +352,7 @@
   font-size: 14px;
   color: #333;
   font-weight: normal;
-  font-family: cabin;
+  font-family: AvenirLTStd-Book;
   margin-bottom: 5px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -379,7 +389,7 @@
   padding:10px;
   position:absolute;
   transition: all 0.35s;
-  font-family: cabin
+  font-family: AvenirLTStd-Book
 }
 .tooltip-location{
   font-weight: 500;
@@ -416,7 +426,7 @@
   color: #333;
   padding: 11px;
   margin-right: auto;
-  font-family: cabin;
+  font-family: AvenirLTStd-Book;
   font-size: 12px;
   margin-bottom: 50px;
   cursor: pointer;
@@ -437,7 +447,7 @@
   width: 20%;
   height: 15px;
   border-radius: 90px;
-  font-family: Cabin;
+  font-family: AvenirLTStd-Book;
   font-size: 15px;
   text-transform: uppercase;
   left: 50%;
@@ -447,7 +457,7 @@
 }
 
 .protograph-app-filter-close-button {
-  padding: 17px 15px 18px 25px
+  padding: 17px 20px 18px 20px
 }
 
 .protograph-app-filter-icon-slide-down {
@@ -550,6 +560,10 @@
   margin: 0em 6px 0em 0em !important;
 }
 
+.remove.icon {
+  display: inline;
+}
+
 .article-share-icons{
   background: #cd1713;
   width: 300px;
@@ -580,7 +594,7 @@
 .summary{
   /* height: 175px; */
   color: grey;
-  font-family: cabin;
+  font-family: AvenirLTStd-Book;
   margin-bottom: 20px;
   overflow: hidden;
 }
@@ -588,7 +602,7 @@
 .policy-div{
   height: 125px;
   color: grey;
-  font-family: cabin;
+  font-family: AvenirLTStd-Book;
 }
 
 .policy-dropdown-container{
@@ -607,7 +621,7 @@
 .video-link{
   /* display: inline-block; */
   font-size: 12px;
-  font-family: cabin;
+  font-family: AvenirLTStd-Book;
   /* position: absolute; */
   /* right: 160px; */
   line-height: 33px;
@@ -622,7 +636,7 @@
 .screenshot-button{
   /* display: inline-block; */
   font-size: 12px;
-  font-family: cabin;
+  font-family: AvenirLTStd-Book;
   padding: 7px 15px;
   background: #efefef;
   border-radius: 5px;
@@ -636,7 +650,7 @@
 .dropdown-button{
   display: inline-block;
   font-size: 12px;
-  font-family: cabin;
+  font-family: AvenirLTStd-Book;
   background: #efefef;
   border-radius: 5px;
   width: 350px;
@@ -648,7 +662,7 @@
 
 .policy-button{
   font-size: 12px;
-  font-family: cabin;
+  font-family: AvenirLTStd-Book;
   /*padding: 12px 15px;*/
   background: #fafafa;
   border-radius: 5px;
@@ -659,7 +673,7 @@
 }
 
 #table-view {
-  font-family: cabin;
+  font-family: AvenirLTStd-Book;
   border-collapse: collapse;
   width: 100%;
   margin-top: 20px;
@@ -716,7 +730,7 @@
   color: #afacac;
   font-size: 14px;
   font-style: italic;
-  font-family: cabin;
+  font-family: AvenirLTStd-Book;
 }
 .proto-app-screenshot {
   display: none;
@@ -747,7 +761,7 @@
   color: #afacac;
   font-size: 14px;
   font-style: italic;
-  font-family: cabin;
+  font-family: AvenirLTStd-Book;
 }
 
 .protograph-grid-card iframe {

@@ -1,6 +1,11 @@
+@font-face {
+  font-family: AvenirLTStd-Book;
+  src: url("https://cdn.protograph.pykih.com/lib/AvenirLTStd-Book.otf") format("opentype");
+}
+
 .protograph-filters-container {
   position: relative;
-  font-family: "cabin";
+  font-family: "AvenirLTStd-Book";
   margin-bottom: 25px;
 }
 .protograph-filters-header {
@@ -45,7 +50,7 @@
   /* top: 52px; */
   /* left: 0px; */
   /* bottom: 0px; */
-  font-family: "cabin";
+  font-family: "AvenirLTStd-Book";
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -107,7 +112,7 @@
   /*padding: 10px 17px;*/
   width: 10%;
   text-align: left;
-  font-family: cabin;
+  font-family: AvenirLTStd-Book;
   font-size: 14px;
   font-style: italic;
 }
