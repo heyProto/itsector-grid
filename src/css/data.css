@@ -428,20 +428,28 @@
   box-shadow: 0px 5px 15px lightgrey;
   background: whitesmoke;
 }
-.protograph-app-filter-icon {
+.protograph-app-filter-icon, .protograph-app-filter-close-button {
   display: none;
   background: white;
   position: fixed;
   bottom: 20px;
-  padding: 15px;
-  width: 21px;
-  height: 21px;
-  border-radius: 50%;
+  padding: 15px 20px 20px 20px;
+  width: 20%;
+  height: 15px;
+  border-radius: 90px;
+  font-family: Cabin;
+  font-size: 15px;
+  text-transform: uppercase;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 15px 0px;
 }
+
+.protograph-app-filter-close-button {
+  padding: 17px 15px 18px 25px
+}
+
 .protograph-app-filter-icon-slide-down {
   bottom: -30px;
   transition: bottom 500ms ease-out;
@@ -450,9 +458,7 @@
   bottom: 20px;
   transition: bottom 500ms ease-out;
 }
-.protograph-app-filter-close-button {
-  display: none;
-}
+
 #show-more-cards:focus {
   outline: 0;
 }
