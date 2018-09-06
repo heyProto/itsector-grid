@@ -188,17 +188,18 @@ class App extends React.Component {
         });
       }
     }
-    arr.sort(function (a, b) {
-      let key1 = a.count,
-        key2 = b.count;
-      if (key1 > key2) {
-        return -1;
-      } else if (key1 == key2) {
-        return 0;
-      } else {
-        return 1;
-      }
-    });
+    if (filter.propName == 'year') { //sort by year
+      	arr.sort((a,b) => {
+	        return b.value - a.value
+      	});
+    }
+    else {	//sort by count
+    	arr.sort((a, b) => { 
+	    	let key1 = a.count,
+		        key2 = b.count;
+		      return key2 - key1;
+    	});
+    }
     return arr; // returns array
   }
 
