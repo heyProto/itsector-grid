@@ -173,7 +173,7 @@
   padding: 15px 10px;
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 500px) {
   .protograph-filters-container {
     /* height: 100vh; */
     width: 100%;
