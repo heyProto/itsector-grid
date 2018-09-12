@@ -15,8 +15,33 @@ class MapsCard extends React.Component {
       path: undefined,
       offsetWidth: undefined,
       offsetHeight: undefined,
-      matrix: [1, 0, 0, 1, 0, 0]
+      matrix: [1, 0, 0, 1, 0, 0],
+      dragging: false
     }
+  }
+
+  panLeft = () => {
+    const m = this.state.matrix;
+    m[4] -= 20;
+    this.setState({ matrix: m });
+  }
+
+  panRight = () => {
+    const m = this.state.matrix;
+    m[4] += 20;
+    this.setState({ matrix: m });
+  }
+
+  panUp = () => {
+    const m = this.state.matrix;
+    m[5] -= 20;
+    this.setState({ matrix: m });
+  }
+
+  panDown = () => {
+    const m = this.state.matrix;
+    m[5] += 20;
+    this.setState({ matrix: m });
   }
 
   zoom = (scale) => {
@@ -84,21 +109,28 @@ class MapsCard extends React.Component {
     let styles = {
       strokeWidth: 0.675
     }
-    const {projection, regions, outlines, country, path, offsetWidth, offsetHeight, matrix} = this.state;
+    const {projection, regions, outlines, country, path, offsetWidth, offsetHeight, matrix, dragging} = this.state;
     return(
       <div>
-      <svg id='map_svg' viewBox={`0, 0, ${offsetWidth}, ${offsetHeight}`} width={offsetWidth} height={offsetHeight}>
-      <g id="map-group" transform={`matrix(${this.state.matrix.join(' ')})`}>
-        <g id="regions-grp" className="regions">{regions}</g>
-        <path className='geo-borders' d={path(country)}></path>
-        <g className="outlines" style={styles}>{outlines}</g>
-        <PlotCircles dataJSON={this.props.dataJSON} projection={projection} chartOptions={this.props.chartOptions} height={offsetHeight} width={offsetWidth} />
-        <Voronoi data={this.props.dataJSON} projection={projection} width={offsetWidth} height={offsetHeight} mode={this.props.mode} circleClicked={this.props.circleClicked} handleCircleClicked={this.props.handleCircleClicked} circleHover={this.props.circleHover} showModal={this.props.showModal}/>
-      
-      </g>
-      </svg>
-      <button className="zoom-button" onClick={() => {this.zoom(0.8)}}>-</button>
-      <button className="zoom-button" onClick={() => {this.zoom(1.25)}}>+</button>
+        <svg id='map_svg' viewBox={`0, 0, ${offsetWidth}, ${offsetHeight}`} width={offsetWidth} height={offsetHeight}>
+          <g id="map-group" transform={`matrix(${this.state.matrix.join(' ')})`}>
+            <g id="regions-grp" className="regions">{regions}</g>
+            <path className='geo-borders' d={path(country)}></path>
+            <g className="outlines" style={styles}>{outlines}</g>
+            <PlotCircles dataJSON={this.props.dataJSON} projection={projection} chartOptions={this.props.chartOptions} height={offsetHeight} width={offsetWidth} />
+            <Voronoi data={this.props.dataJSON} projection={projection} width={offsetWidth} height={offsetHeight} mode={this.props.mode} circleClicked={this.props.circleClicked} handleCircleClicked={this.props.handleCircleClicked} circleHover={this.props.circleHover} showModal={this.props.showModal}/> 
+          </g>
+        </svg>
+        <div className="map-nav">
+          <button className="zoom-button" onClick={() => {this.zoom(0.8)}}>-</button>
+          <button className="zoom-button" onClick={() => {this.zoom(1.25)}}>+</button>
+          <div className="pan-nav">
+            <button className="zoom-button" onClick={() => {this.panUp()}}>↑</button>
+            <div><button className="zoom-button" onClick={() => {this.panLeft()}}>←</button>
+            <button className="zoom-button" onClick={() => {this.panRight()}}>→</button></div>
+            <button className="zoom-button" onClick={() => {this.panDown()}}>↓</button>
+          </div>
+        </div>
       </div>
     )
   }
