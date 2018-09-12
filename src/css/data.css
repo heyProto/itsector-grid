@@ -768,6 +768,26 @@
   /*display: none;*/
 }
 
+#map-group {
+  transition-property: transform;
+  transition-timing-function: ease-in;
+  transition-duration: 0.3s;
+}
+
+.zoom-button {
+  width: 40px;
+  height: 40px;
+  background-color: crimson;
+  display: inline-block;
+  flex-direction: row;
+  color: #efefef;
+  border-radius: 50%;
+  border: 2px solid white;
+  font-size: 20px;
+  vertical-align: top;
+  margin-top: 20px;
+}
+
 @media only screen and (max-width: 500px ) {
   body {
     background: white;

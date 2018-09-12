@@ -14,8 +14,20 @@ class MapsCard extends React.Component {
       country: undefined,
       path: undefined,
       offsetWidth: undefined,
-      offsetHeight: undefined
+      offsetHeight: undefined,
+      matrix: [1, 0, 0, 1, 0, 0]
     }
+  }
+
+  zoom = (scale) => {
+    const m = this.state.matrix;
+    const len = m.length;
+    for (let i = 0; i < len; i++) {
+      m[i] *= scale;
+    }
+    m[4] += (1 - scale) * this.state.offsetWidth / 2;
+    m[5] += (1 - scale) * this.state.offsetHeight / 2;
+    this.setState({ matrix: m });
   }
 
   componentWillMount() {
@@ -72,15 +84,22 @@ class MapsCard extends React.Component {
     let styles = {
       strokeWidth: 0.675
     }
-    const {projection, regions, outlines, country, path, offsetWidth, offsetHeight} = this.state;
+    const {projection, regions, outlines, country, path, offsetWidth, offsetHeight, matrix} = this.state;
     return(
+      <div>
       <svg id='map_svg' viewBox={`0, 0, ${offsetWidth}, ${offsetHeight}`} width={offsetWidth} height={offsetHeight}>
+      <g id="map-group" transform={`matrix(${this.state.matrix.join(' ')})`}>
         <g id="regions-grp" className="regions">{regions}</g>
         <path className='geo-borders' d={path(country)}></path>
         <g className="outlines" style={styles}>{outlines}</g>
         <PlotCircles dataJSON={this.props.dataJSON} projection={projection} chartOptions={this.props.chartOptions} height={offsetHeight} width={offsetWidth} />
         <Voronoi data={this.props.dataJSON} projection={projection} width={offsetWidth} height={offsetHeight} mode={this.props.mode} circleClicked={this.props.circleClicked} handleCircleClicked={this.props.handleCircleClicked} circleHover={this.props.circleHover} showModal={this.props.showModal}/>
+      
+      </g>
       </svg>
+      <button className="zoom-button" onClick={() => {this.zoom(0.8)}}>-</button>
+      <button className="zoom-button" onClick={() => {this.zoom(1.25)}}>+</button>
+      </div>
     )
   }
 }
