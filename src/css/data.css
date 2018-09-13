@@ -489,7 +489,7 @@
   font-size: 28px !important;
 }
 .protograph-star-small {
-	font-size: 16px !important;
+  font-size: 16px !important;
 }
 .protograph-active-star {
   color: #f7ca4a;
@@ -775,22 +775,32 @@
 }
 
 .zoom-button {
-  width: 40px;
-  height: 40px;
-  background-color: crimson;
+  width: 30px;
+  height: 30px;
+  background-color: #efefef;
   display: inline-block;
   flex-direction: row;
-  color: #efefef;
+  color: crimson;
   border-radius: 50%;
+  /* font-weight: bolder; */
   border: 2px solid white;
-  font-size: 20px;
+  font-size: 15px;
   vertical-align: top;
   margin: -4px 10px;
 }
 
+.zoom-button:hover {
+  background-color: crimson;
+  color: #efefef;
+}
+
+.zoom-button:focus {
+  outline: 0;
+}
+
 .map-nav {
   float: right;
-  margin-top: 20px;
+  margin-top: 35px;
 }
 
 .pan-nav {
@@ -861,7 +871,7 @@
     right: auto;
     position: relative;
     left: 15px;
-	  /*text-align: center;*/
+    /*text-align: center;*/
     top: 0px;
   }
   .protograph-card-area{
@@ -895,6 +905,9 @@
   }
   #map_svg{
     width: 100%;
+    z-index: -1;
+    position: relative;
+    margin-top: -50px;
   }
   #table-view{
     position: relative;
@@ -922,5 +935,9 @@
   }
   .protograph-grid-card {
     float: none;
+  }
+  .map-nav {
+    position: relative;
+    z-index: 1;
   }
 }
