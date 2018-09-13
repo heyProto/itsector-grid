@@ -787,6 +787,7 @@
   font-size: 15px;
   vertical-align: top;
   margin: -4px 10px;
+  padding: 0;
 }
 
 .zoom-button:hover {
@@ -805,6 +806,10 @@
 
 .pan-nav {
   margin-top: 10px;
+}
+
+.voronoi-map:hover {
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 500px ) {
@@ -905,7 +910,6 @@
   }
   #map_svg{
     width: 100%;
-    z-index: -1;
     position: relative;
     margin-top: -50px;
   }
@@ -939,5 +943,8 @@
   .map-nav {
     position: relative;
     z-index: 1;
+  }
+  .zoom-button{
+    font-size: 12px;
   }
 }
