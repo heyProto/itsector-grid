@@ -538,8 +538,8 @@
 }
 .protograph-close-modal {
   position: absolute;
-  top: -20px;
-  right: -20px;
+  top: 20px;
+  right: 15px;
   height: 30px;
   width: 30px;
   background:#e03832;
@@ -867,9 +867,8 @@
     margin-bottom: 100px;
   }
   .protograph-modal {
-    top: 10%;
     left: 0%;
-    transform: translate(-50%, 0%);
+    width: 100vw;
     margin-bottom: 10%;
   }
   .protograph-map-legends-container {
@@ -946,5 +945,19 @@
   }
   .zoom-button{
     font-size: 12px;
+  }
+
+  .news-card-mobile .card-tabs-mobile {
+    width: 100vw;
+  }
+
+  .protograph-col4-mode {
+      width: 100vw;
+      margin-left: auto;
+      margin-right: auto;
+  }
+
+  .news-card-mobile {
+      width: 100vw;
   }
 }
