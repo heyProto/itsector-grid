@@ -17,6 +17,7 @@ ProtoGraph.initPage = function () {
       additionalMarginBottom: 10
     };
     $('.filter-column').theiaStickySidebar(sticky_sidebar_options);
+    $('#protograph_filter_icon').css('display', 'none');
   }
 
   if (mode === 'mobile') {

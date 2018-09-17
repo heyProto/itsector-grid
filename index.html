@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="./proto-app-style.min.css">
     <link rel="stylesheet" type="text/css" href="./src/css/data.css">
     <link rel="stylesheet" type="text/css" href="./src/css/filter.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- <link rel="stylesheet" type="text/css" href="./proto-app-grid.min.css"> -->
     <link rel="stylesheet" type="text/css" href="./proto-app-fonts.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -176,6 +177,20 @@
         ProtoGraph.vertical_header_json_url = "https://p.jagran.com/jaljagran/navigation.json";
         ProtoGraph.homepage_header_json_url = "https://p.jagran.com/verticals.json";
         ProtoGraph.site_header_json_url = "https://p.jagran.com/header.json";
+
+        //show filter button only after scrolling down
+        $(document).ready(function () {
+        $('#protograph_filter_icon').css({'display': 'none', 'transition': 'bottom 0.35s', 'transition-timing-function': 'ease-in'});
+        $(window).scroll(function () {
+            if ($(window).width() < 500) {
+                if ($(this).scrollTop() > $(window).height()/2) {
+                $('#protograph_filter_icon').css({'bottom': '20px', 'display': 'inline-block'});
+                } else {
+                    $('#protograph_filter_icon').css('bottom', '-100px');
+                }
+            }
+        });
+    });
     </script>
     <script src="https://cdn.protograph.pykih.com/lib/protoGraph.min.js" defer></script>
     <script type="text/javascript" src="./proto-app-lib.min.js" defer></script>

@@ -538,8 +538,8 @@
 }
 .protograph-close-modal {
   position: absolute;
-  top: 20px;
-  right: 15px;
+  top: -15px;
+  right: -15px;
   height: 30px;
   width: 30px;
   background:#e03832;
@@ -959,5 +959,10 @@
 
   .news-card-mobile {
       width: 100vw;
+  }
+
+  .protograph-close-modal {
+    top: 20px;
+    right: 15px;
   }
 }
