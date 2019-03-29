@@ -8,61 +8,23 @@ export default class Modal extends React.Component {
     super(props);
 
     let stateVar = {
-      fetchingData: true,
       dataJSON: {},
       languageTexts: undefined,
       siteConfigs: this.props.siteConfigs,
       activeCounter: 1,
+      tabs: ["Details", "Tweets"],
       translateValue: 50,
       visible: false
     };
 
-    if (this.props.dataJSON) {
-      stateVar.fetchingData = false;
-      stateVar.dataJSON = this.props.dataJSON;
-      stateVar.tags =
-        this.tagMap[this.props.dataJSON.data.language] ||
-        this.tagMap["English"];
-    }
-
     this.state = stateVar;
+
     this.afterOpen = this.afterOpen.bind(this);
     this.handleRequestClose = this.handleRequestClose.bind(this);
   }
 
   exportData() {
     return this.props.selector.getBoundingClientRect();
-  }
-
-  componentDidMount() {
-    if (this.state.fetchingData) {
-      console.log(this.props.dataURL);
-      let items_to_fetch = [axios.get(this.props.dataURL)];
-
-      axios.all(items_to_fetch).then(
-        axios.spread(card => {
-          let stateVar = {
-            fetchingData: false,
-            dataJSON: card.data,
-            activeCounter: 1,
-            tags:
-              this.tagMap[card.data.data.language] || this.tagMap["English"],
-          };
-          this.setState(stateVar);
-        })
-      );
-    }
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.dataJSON) {
-      this.setState({
-        dataJSON: nextProps.dataJSON,
-        tags:
-          this.tagMap[nextProps.dataJSON.data.language] ||
-          this.tagMap["English"],
-      });
-    }
   }
 
   afterOpen() {
@@ -101,7 +63,8 @@ export default class Modal extends React.Component {
   }
 
   renderTabs() {
-    let tabs = this.state.tags.tabs;
+    console.log(this.state)
+    let tabs = this.state.tabs;
     let tabNames;
     let tabClass;
 
@@ -138,10 +101,42 @@ export default class Modal extends React.Component {
     let data = this.props.data
     switch (tab) {
       case 2:
-        let description = this.state.dataJSON.data.description_of_incident;
-        return <p>{description}</p>;
+      let data2 = this.props.data;
+      let widthFactor = 300/Math.max(data2.caste_discrimination, data2.womens_rights, data2.religious_intolerance, data2.lgbtqi_rights, data2.foe, data2.farm_crisis, data2.workers_rights)
+      return (<div className="graph-container">
+      <div className="graph">
+        <div className="categories">
+          <div className="category">Caste Discrimination</div>
+          <div className="category">Women's Rights</div>
+          <div className="category">Religious Intolerance</div>
+          <div className="category">LGBTQI Rights</div>
+          <div className="category">FoE</div>
+          <div className="category">Farm Crisis</div>
+          <div className="category">Workers Rights</div>
+        </div>
+        <div className="bars">
+          <div className="bar" style={{width: data2.caste_discrimination*widthFactor}}></div>
+          <div className="bar" style={{width: data2.womens_rights*widthFactor}}></div>
+          <div className="bar" style={{width: data2.religious_intolerance*widthFactor}}></div>
+          <div className="bar" style={{width: data2.lgbtqi_rights*widthFactor}}></div>
+          <div className="bar" style={{width: data2.foe*widthFactor}}></div>
+          <div className="bar" style={{width: data2.farm_crisis*widthFactor}}></div>
+          <div className="bar" style={{width: data2.workers_rights*widthFactor}}></div>
+        </div>
+        <div className="labels">
+          <div className="chart-label">{data2.caste_discrimination}</div>
+          <div className="chart-label">{data2.womens_rights}</div>
+          <div className="chart-label">{data2.religious_intolerance}</div>
+          <div className="chart-label">{data2.lgbtqi_rights}</div>
+          <div className="chart-label">{data2.foe}</div>
+          <div className="chart-label">{data2.farm_crisis}</div>
+          <div className="chart-label">{data2.workers_rights}</div>
+        </div>
+      </div>
+      </div>)
       case 1:
-        let data = this.state.dataJSON.data;
+        let data = this.props.data;
+        console.log(data)
         return (
           <div>
             <div className="half-width-parameter">
@@ -164,77 +159,13 @@ export default class Modal extends React.Component {
             </div>
           </div>
         );
-      case 3:
-        return (
-          <div>
-            <div className="single-parameter">
-              <div className="parameter-label">{this.state.tags.source}</div>
-              <p>
-                <a href={data.link_1} target="_blank">
-                  {data.link_1}
-                </a>
-              </p>
-              <p>
-                <a href={data.link_2} target="_blank">
-                  {data.link_2}
-                </a>
-              </p>
-            </div>
-            <div className="single-parameter">
-              <div className="parameter-label">
-                {this.state.tags.last_updated}
-              </div>
-              <p>{this.formatDate(data.last_updated, data.language)}</p>
-            </div>
-          </div>
-        );
-      case 4:
-          if (this.state.dataJSON.data.videos && this.state.dataJSON.data.images) {
-            return (
-              <div className="sliders">
-                <Slider width={540} urls={this.state.dataJSON.data.images} type="image" />
-                <Slider width={540} urls={this.state.dataJSON.data.videos} type="video" hidden={true} />
-              </div>          
-            );
-          }
-          else if (this.state.dataJSON.data.images) {
-            return (
-              <Slider width={540} urls={this.state.dataJSON.data.images} type="image" />
-            )
-          }
-          else {
-            let message = this.state.tags.no_images;
-            return (
-              message
-            );
-          }
-          
-      case 5:
-        if (this.state.dataJSON.data.videos && this.state.dataJSON.data.images) {
-          return (
-            <div className="sliders">
-              <Slider width={540} urls={this.state.dataJSON.data.images} type="image" hidden={true} />
-              <Slider width={540} urls={this.state.dataJSON.data.videos} type="video"/>
-            </div>          
-          );
-        }
-        else if (this.state.dataJSON.data.videos) {
-          return (
-            <Slider width={540} urls={this.state.dataJSON.data.videos} type="video" />
-          )
-        }
-        else {
-          let message = this.state.tags.no_videos;
-          return (
-            message
-          );
-        } 
+      
         break;
     }
   }
 
   renderCol7() {
-    if (this.state.fetchingData) {
+    if (!this.props.data) {
       return <div>Loading</div>;
     } else {
       let data = this.props.data
@@ -254,7 +185,7 @@ export default class Modal extends React.Component {
         shouldCloseOnOverlayClick={true}
         shouldCloseOnEsc={false}
         shouldReturnFocusAfterClose={true}
-        style={{display: block}}
+        style={{display: 'block'}}
         role="dialog"
         parentSelector={() => document.body}
         aria={{
@@ -299,7 +230,7 @@ export default class Modal extends React.Component {
   }
 
   renderCol4() {
-    if (this.state.fetchingData) {
+    if (!this.props.data) {
       return <div>Loading</div>;
     } else {
       let data = this.state.dataJSON.data

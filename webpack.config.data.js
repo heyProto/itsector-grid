@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 const minifier = require('minifier');
-const input = ['./src/css/data.css', './src/css/filter.css']
+const input = ['./src/css/data.css', './src/css/filter.css', './src/css/modal.css']
 const options = {
   output: "proto-app-grid.min.css"
 }

@@ -281,6 +281,7 @@ class App extends React.Component {
     } else {
       alert("Browser does not support HTML5.");
     }
+    console.log(this.state)
   }
 
 
@@ -384,6 +385,7 @@ class App extends React.Component {
   }
 
   renderLaptop() {
+    let display = this.state.showModal ? 'block' : 'none';
     if (this.state.dataJSON === undefined) {
       return this.renderLoader();
     } else {
@@ -454,10 +456,13 @@ class App extends React.Component {
         mode = {
           this.props.mode
         }
+
         showModal = {
           this.showModal
         }
-        /> </div> <
+        /> 
+        </div> 
+        <
         Modal showModal = {
           this.state.showModal
         }
@@ -467,10 +472,11 @@ class App extends React.Component {
         mode = {
           this.state.mode
         }
-        iframeURL = {
-          this.state.iframeURL
-        }
-        /> </div> </div>
+        data = {this.state.data ? this.state.data:null}
+        />
+        <div style={{width: '100px', height: '100px', backgroundColor: '#000000', display: display}}></div>
+        </div>
+        </div>
       )
     }
   }

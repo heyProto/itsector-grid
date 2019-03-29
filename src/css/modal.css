@@ -1,8 +1,8 @@
-body{
+body {
 	padding: 50px;
 }
 
-.proto-modal{
+.proto-modal {
 	background: #fafafa;
 	border-radius: 4px;
 	height: 430px;
@@ -11,7 +11,7 @@ body{
 	font-family: "cabin";
 }
 
-.modal-image{
+.modal-image {
 	background: #efefef;
 	height: 140px;
 	width: 140px;
@@ -20,7 +20,7 @@ body{
 	margin-right: 0px !important;
 }
 
-.modal-header{
+.modal-header {
 	border-bottom: 1px solid #efefef;
 	padding-bottom: 12px;
 	margin-bottom: 12px;
@@ -29,7 +29,7 @@ body{
 	position: relative;
 }
 
-.modal-title{
+.modal-title {
 	color: black;
 	font-size: 34px;
 	position: absolute;
@@ -39,21 +39,21 @@ body{
 	font-weight: bold;
 }
 
-.modal-title .small{
+.modal-title .small {
 	font-size: 18px;
 	vertical-align: top;
 	padding-top: 5px;
 	display: inline-block;
 }
 
-.title-pretext{
+.title-pretext {
 	font-size: 13px;
 	margin-bottom: 10px;
 	font-weight: normal;
 	color: #333;
 }
 
-.modal-close-icon{
+.modal-close-icon {
 	position: absolute;
 	right: 0px;
 	top: 0px;
@@ -63,81 +63,112 @@ body{
 	border-radius: 50px;
 }
 
-.modal-content{
+.modal-content {
 	font-size: 12px;
 	color: #333;
 	line-height: 19px;
 }
 
-.content-left{
+.content-left {
 	width: 220px;
 }
 
-.content-left strong{
+.content-left strong {
 	color: rgba(50, 138, 171);
 }
 
-.content-right{
+.content-right {
 	width: 276px;
 	float: right;
 }
 
-.modal-footer{
+.modal-footer {
 	position: absolute;
-    bottom: 0px;
-    left: 0px;
-    padding: 12px;
-    border-top: 1px solid #efefef;
-    display: inline-block;
-    width: 100%;
-    line-height: 17px;
-    font-size: 10px;
-    color: #777;
-    box-sizing: border-box;
+	bottom: 0px;
+	left: 0px;
+	padding: 12px;
+	border-top: 1px solid #efefef;
+	display: inline-block;
+	width: 100%;
+	line-height: 17px;
+	font-size: 10px;
+	color: #777;
+	box-sizing: border-box;
 }
 
-.hint-text{
+.hint-text {
 	font-size: 10px;
 	color: #777;
 	line-height: 17px;
 	margin-top: 5px;
 }
 
-.parameter-name{
+.parameter-name {
 	display: inline-block;
 }
 
-.single-parameter{
-	padding-bottom:7px;
+.single-parameter {
+	padding-bottom: 7px;
 }
 
-.parameter-value{
+.parameter-value {
 	display: inline-block;
 	float: right;
 }
 
-.proto-modal-mobile{
+.proto-modal-mobile {
 	height: auto !important;
 }
 
-.proto-modal-mobile .modal-image{
+.proto-modal-mobile .modal-image {
 	height: 80px;
 	width: 80px;
 }
 
-.proto-modal-mobile .modal-title{
+.proto-modal-mobile .modal-title {
 	font-size: 24px;
 }
 
-.proto-modal-mobile .content-left{
+.proto-modal-mobile .content-left {
 	margin-right: 0px;
 	width: 276px;
 	margin-bottom: 20px;
 }
 
-.proto-modal-mobile .modal-footer{
+.proto-modal-mobile .modal-footer {
 	position: relative;
 	padding: 0px;
 	padding-top: 12px;
 	margin-top: 12px;
 }
+
+@import url('https://fonts.googleapis.com/css?family=Lato|Bitter|Cabin');
+
+body {
+	min-width: initial !important;
+}
+
+.clearfix {
+	clear: both;
+}
+
+.protograph-card {
+	position: relative;
+	overflow: hidden;
+	letter-spacing: normal;
+	box-sizing: border-box;
+}
+
+.protograph-col4-mode {
+	/*height: 70px;*/
+	width: 300px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.protograph-col7-mode {
+	width: 540px;
+	margin-left: auto;
+	margin-right: auto;
+}
+

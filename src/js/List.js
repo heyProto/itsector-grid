@@ -62,6 +62,7 @@ class ListCards extends React.Component {
   }
 
   render() {
+    console.log(this.props.showModal, 'showModal')
     if (this.props.dataJSON.length === 0) {
       return(<h2>No cards to display</h2>)
     } else {
