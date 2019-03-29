@@ -56,6 +56,18 @@ ProtoGraph.initPage = function () {
       $('body').css('overflow', 'initial');
       $('.container.proto-container').css('overflow', 'initial');
     });
+
+    //show filter button only after scrolling down
+    $('#protograph_filter_icon').css({'display': 'none', 'transition': 'bottom 0.35s', 'transition-timing-function': 'ease-in'});
+    $(window).scroll(function () {
+        if ($(window).width() < 500) {
+            if ($(this).scrollTop() > $(window).height()/2) {
+                $('#protograph_filter_icon').css({'bottom': '20px', 'display': 'inline-block'});
+            } else {
+                $('#protograph_filter_icon').css('bottom', '-100px');
+            }
+        }
+    });
   }
 
   if (page && streams['16c_Hero']) {

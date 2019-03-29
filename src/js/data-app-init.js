@@ -23,36 +23,12 @@ ProtoGraph.initDataApp = function () {
         },
         filters: [
             {
-                "alias": "Year",
-                "propName": "year"
+                "alias": "Active",
+                "propName": "active"
             },
             {
-                "alias": "State",
-                "propName": "state"
-            },
-            {
-                "alias": "Context/bias indicator",
-                "propName": "pretext_to_incident"
-            },
-            {
-                "alias": "Party in power",
-                "propName": "party_in_power"
-            },
-            {
-                "alias": "Type of assault",
-                "propName": "type_of_assault"
-            },
-            {
-                "alias": "Source",
-                "propName": "type_of_source"
-            },
-            {
-                "alias": "Is FIR registered?",
-                "propName": "is_fir_registered"
-            },
-            {
-                "alias": 'Is Cross FIR registered?',
-                "propName": "is_cross_fir_registered"
+                "alias": "Role",
+                "propName": "leadership_role"
             }
         ]
     });

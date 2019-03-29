@@ -140,7 +140,7 @@
                 "id": 651,
                 "title": "11_Data_Grid",
                 "datacast_identifier": "bfe798d00804fcffc93bcb92",
-                "url": "https://dnt71st2q6cqr.cloudfront.net/a699bc34ceecd1e7a4fde439/index.json",
+                "url": "data.json",
                 "name_of_stream": "11_Section_data"
             },
             "16c_Hero":{"id":2327,"title":"453_Data_16c_Hero","datacast_identifier":"c66a590e23e9c37bef06875b","url":"https://d2a8orkbl0gwbe.cloudfront.net/c66a590e23e9c37bef06875b/index.json","name_of_stream":"Hero"
@@ -152,7 +152,7 @@
             "instagram_url": "",
             "twitter_url": "https://twitter.com/JagranNews",
             "facebook_url": "https://www.facebook.com/dainikjagran",
-            "house_colour": "#cd1713",
+            "house_colour": "rgba(50, 138, 171)",
             "reverse_house_colour": "#ffffff",
             "font_colour": "#ffffff",
             "reverse_font_colour": "#ffffff",
@@ -174,23 +174,11 @@
             "name": "जलजागरण",
             "name_html": "<span style='font-weight:normal'>#</span>जलजागरण"
         };
-        ProtoGraph.vertical_header_json_url = "https://p.jagran.com/jaljagran/navigation.json";
-        ProtoGraph.homepage_header_json_url = "https://p.jagran.com/verticals.json";
-        ProtoGraph.site_header_json_url = "https://p.jagran.com/header.json";
+        ProtoGraph.vertical_header_json_url = "https://p.factchecker.in/hatecrimewatch/navigation.json";
+        ProtoGraph.homepage_header_json_url = "https://p.factchecker.in/verticals.json";
+        ProtoGraph.site_header_json_url = "https://p.factchecker.in/header.json";
 
-        //show filter button only after scrolling down
-        $(document).ready(function () {
-        $('#protograph_filter_icon').css({'display': 'none', 'transition': 'bottom 0.35s', 'transition-timing-function': 'ease-in'});
-        $(window).scroll(function () {
-            if ($(window).width() < 500) {
-                if ($(this).scrollTop() > $(window).height()/2) {
-                $('#protograph_filter_icon').css({'bottom': '20px', 'display': 'inline-block'});
-                } else {
-                    $('#protograph_filter_icon').css('bottom', '-100px');
-                }
-            }
-        });
-    });
+        
     </script>
     <script src="https://cdn.protograph.pykih.com/lib/protoGraph.min.js" defer></script>
     <script type="text/javascript" src="./proto-app-lib.min.js" defer></script>

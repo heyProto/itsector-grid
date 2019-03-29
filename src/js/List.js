@@ -9,7 +9,7 @@ class ListCards extends React.Component {
 
     let stateVar = {
       no_of_cards: 28,
-      cardsInRow: window.innerWidth <= 500 ? 1 : 4,
+      cardsInRow: window.innerWidth <= 500 ? 1 : 6,
       cardsVisible: this.props.dataJSON.slice(0, 28)
     };
 
@@ -69,19 +69,16 @@ class ListCards extends React.Component {
         let class_name = (((i+1)% this.state.cardsInRow) == 0) ? "protograph-card div-without-margin-right" : "protograph-card";
         return(
             <div
-              id={`protograph-grid-card-${card.state}-${card.date}`}
+              id={`${card.company}`}
               onClick={this.props.showModal}
               data-viewcast_id={card.view_cast_id}
               className={`protograph-grid-card protograph-trigger-modal ${class_name}`}
               data-district_code={card.district}
               >
               <div className="proto-card-content" data-iframe_url={card.iframe_url}>
-                <div className="proto-card-date">{card.date}</div>
-                <div className="proto-card-location">{card.district}, {card.state}</div>
-                <div className="proto-context-div">
-                  <div className="proto-context-title">CONTEXT/BIAS INDICATOR</div>
-                  <div className="proto-context">{card.pretext_to_incident}</div>
-                </div>
+                {/* <div className="proto-card-date">{card.name}</div> */}
+                <div className="proto-card-location">{card.name}</div>
+                  <div className="proto-context">{card.leadership_role}, {card.company}</div>
               </div>
           </div>
         )

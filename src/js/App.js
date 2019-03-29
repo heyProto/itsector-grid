@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
-import { RiseLoader } from 'halogenium';
+import {
+  RiseLoader
+} from 'halogenium';
 import List from './List.js';
 import Map from './Map.js';
 import Utils from './utility.js';
@@ -31,65 +33,69 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    const { dataURL, topoURL, filterConfigsURL } = this.props;
+    const {
+      dataURL,
+      topoURL,
+      filterConfigsURL
+    } = this.props;
     axios.all([
       axios.get(dataURL),
       axios.get(topoURL)
     ]).then(axios.spread((card, topo) => {
-        let data,
-          filters,
-          filterJSON,
-          keyValue,
-          groupBy;
+      let data,
+        filters,
+        filterJSON,
+        keyValue,
+        groupBy;
 
-        data = card.data;
-        data.forEach((e,i) => { e.u_id = (i+1) });
+      data = card.data;
+      data.forEach((e, i) => {
+        e.u_id = (i + 1)
+      });
 
-        filters = this.state.filters.map((filter) => {
-          groupBy = Utils.groupBy(data, filter.propName)
-          keyValue = this.findKeyValue(groupBy)
-          return {
-            name: filter.alias,
-            key: filter.propName,
-            filters: this.sortObject(this.createObj(groupBy, filter.propName, keyValue), filter)
-            // filters: this.sortObject(Utils.groupBy(data, filter.propName), filter)
-          }
-        });
+      filters = this.state.filters.map((filter) => {
+        groupBy = Utils.groupBy(data, filter.propName)
+        keyValue = this.findKeyValue(groupBy)
+        return {
+          name: filter.alias,
+          key: filter.propName,
+          filters: this.sortObject(this.createObj(groupBy, filter.propName, keyValue), filter)
+          // filters: this.sortObject(Utils.groupBy(data, filter.propName), filter)
+        }
+      });
 
-        filterJSON = [
-          {
-            name: "Tab - 1",
-            filters: filters
-          }
-        ];
+      filterJSON = [{
+        name: "Tab - 1",
+        filters: filters
+      }];
 
-        this.setState({
-          dataJSON: data,
-          filteredDataJSON: data,
-          topoJSON: topo.data,
-          filterJSON: filterJSON,
-          keyValue: keyValue
-        }, (e) => {
-          this.initF3BTWShareLinks();
-          var that = this;
-          if (window.ga) {
-            ga(function(){
-              var tracker = ga.getAll()[0].get('name');
-              window.ga(`${tracker}.send`, {
-                hitType: 'event',
-                eventCategory: 'user interaction',
-                eventAction: 'click',
-                eventLabel: 'map view'
-              });
-              window.ga(`${tracker}.send`, {
-                hitType: 'event',
-                eventCategory: 'user interaction',
-                eventAction: 'select',
-                eventLabel: this.state.mapDropdownName
-              });
-            })
-          }
-        });
+      this.setState({
+        dataJSON: data,
+        filteredDataJSON: data,
+        topoJSON: topo.data,
+        filterJSON: filterJSON,
+        keyValue: keyValue
+      }, (e) => {
+        this.initF3BTWShareLinks();
+        var that = this;
+        if (window.ga) {
+          ga(function () {
+            var tracker = ga.getAll()[0].get('name');
+            window.ga(`${tracker}.send`, {
+              hitType: 'event',
+              eventCategory: 'user interaction',
+              eventAction: 'click',
+              eventLabel: 'map view'
+            });
+            window.ga(`${tracker}.send`, {
+              hitType: 'event',
+              eventCategory: 'user interaction',
+              eventAction: 'select',
+              eventLabel: this.state.mapDropdownName
+            });
+          })
+        }
+      });
     }));
 
     let dimension = this.getScreenSize();
@@ -102,28 +108,28 @@ class App extends React.Component {
             el = this;
           do {
             i = matches.length;
-            while (--i >= 0 && matches.item(i) !== el) { };
+            while (--i >= 0 && matches.item(i) !== el) {};
           } while ((i < 0) && (el = el.parentElement));
           return el;
         };
     }
   }
 
-  findKeyValue(group){
+  findKeyValue(group) {
     let arr_of_values = [];
-    for (let value in group){
+    for (let value in group) {
       arr_of_values.push(value)
     }
     // console.log(arr_of_values,"arr_of_values");
     return arr_of_values;
   }
 
-  createObj(group, param, keyValue){
+  createObj(group, param, keyValue) {
     let obj = {},
       arr1 = [];
 
-    for (let i=0; i<keyValue.length; i++){
-      if (group[keyValue[i]] === undefined){
+    for (let i = 0; i < keyValue.length; i++) {
+      if (group[keyValue[i]] === undefined) {
         obj[keyValue[i]] = []
       } else {
         obj[keyValue[i]] = group[keyValue[i]]
@@ -150,11 +156,11 @@ class App extends React.Component {
   }
 
   componentDidUpdate() {
-    $(".tabs-area .single-tab").on("click", function(e){
+    $(".tabs-area .single-tab").on("click", function (e) {
       $(".single-tab").removeClass("active-tab");
       $(this).addClass("active-tab");
       $(".tabs.active-area").removeClass("active-area");
-      $(".tabs"+this.dataset.href).addClass("active-area");
+      $(".tabs" + this.dataset.href).addClass("active-area");
     });
 
     if (this.state.mode === 'col4') {
@@ -189,16 +195,15 @@ class App extends React.Component {
       }
     }
     if (filter.propName == 'year') { //sort by year
-      	arr.sort((a,b) => {
-	        return b.value - a.value
-      	});
-    }
-    else {	//sort by count
-    	arr.sort((a, b) => { 
-	    	let key1 = a.count,
-		        key2 = b.count;
-		      return key2 - key1;
-    	});
+      arr.sort((a, b) => {
+        return b.value - a.value
+      });
+    } else { //sort by count
+      arr.sort((a, b) => {
+        let key1 = a.count,
+          key2 = b.count;
+        return key2 - key1;
+      });
     }
     return arr; // returns array
   }
@@ -220,12 +225,10 @@ class App extends React.Component {
 
     // console.log(filtDat, filteredData, "on chnage filteredData")
 
-    let filterJSON = [
-      {
-        name: "Tab - 1",
-        filters: filtDat
-      }
-    ];
+    let filterJSON = [{
+      name: "Tab - 1",
+      filters: filtDat
+    }];
 
     this.setState({
       filteredDataJSON: filteredData,
@@ -236,31 +239,68 @@ class App extends React.Component {
   showModal(e) {
     e.persist();
     if (window.ga) {
-      window.ga(function(){
-        var tracker = ga.getAll()[0].get('name');
+      window.ga(function() {
+        var tracker = ga.getAll()[0].get("name");
         window.ga(`${tracker}.send`, {
-          hitType: 'event',
-          eventCategory: 'user interaction',
-          eventAction: 'click',
-          eventLabel: 'tell me how this map is constructed'
+          hitType: "event",
+          eventCategory: "user interaction",
+          eventAction: "click",
+          eventLabel: "tell me how this map is constructed"
         });
       });
     }
 
+    let company = e.target
+        .closest(".protograph-trigger-modal")
+        .getAttribute("id"),
+      data = this.state.dataJSON.find(i => i.company === company)
     this.setState({
-      iframeURL: e.target.dataset.iframe_url,
+      data: data,
       showModal: true
-    })
+    });
+
+    //change url in address bar based on the point clicked
+    if (typeof history.pushState != "undefined") {
+      let url;
+      let currentURL = document.location.href;
+      if (currentURL.indexOf("#") !== -1) {
+        url = currentURL.substring(0, currentURL.indexOf("#")) + "#" + company;
+      } else if (currentURL[currentURL.length - 1] == "/") {
+        url =
+          currentURL.substring(currentURL.lastIndexOf("#" + 1)) +
+          "#" +
+          company;
+      } else {
+        url =
+          currentURL.substring(currentURL.lastIndexOf("#" + 1)) +
+          "/#" +
+          company;
+      }
+      let obj = { Title: company, Url: url };
+      history.pushState(obj, obj.Title, obj.Url);
+    } else {
+      alert("Browser does not support HTML5.");
+    }
   }
 
+
   closeModal() {
+    //remove view cast id from url after modal is closed
+    let currentURL = document.location.href;
+    if (typeof history.pushState != "undefined") {
+      let url = currentURL.substring(0, currentURL.indexOf("#"));
+      let obj = { Title: "Land Conflict Watch", Url: url };
+      history.pushState(obj, obj.Title, obj.Url);
+    } else {
+      alert("Browser does not support HTML5.");
+    }
     this.setState({
       iframeURL: undefined,
       showModal: false
-    })
+    });
   }
 
-  onTabChange (e) {
+  onTabChange(e) {
     let tab = e.target.getAttribute('id'),
       label;
 
@@ -280,7 +320,7 @@ class App extends React.Component {
     }
 
     if (window.ga) {
-      ga(function(){
+      ga(function () {
         var tracker = ga.getAll()[0].get('name');
         window.ga(`${tracker}.send`, {
           hitType: 'event',
@@ -315,10 +355,10 @@ class App extends React.Component {
         WebkitJustifyContent: 'center',
         justifyContent: 'center'
       };
-    return (
-      <div
-        className="outer-container"
-        style={{
+    return ( <
+      div className = "outer-container"
+      style = {
+        {
           boxSizing: 'border-box',
           display: '-webkit-flex',
           display: 'flex',
@@ -329,8 +369,16 @@ class App extends React.Component {
           WebkitFlexWrap: 'wrap',
           flexWrap: 'wrap',
           clear: 'both'
-      }}>
-        <div className="inner-container" style={style}><RiseLoader color={color} /></div>
+        }
+      } >
+      <
+      div className = "inner-container"
+      style = {
+        style
+      } > < RiseLoader color = {
+        color
+      }
+      /></div >
       </div>
     )
   }
@@ -341,57 +389,88 @@ class App extends React.Component {
     } else {
       $('.social-share-icons').css("display", "block")
       // console.log(this.state.filteredDataJSON, "state.filteredDataJSON")
-      return (
-        <div className="banner-area">
-          <div className="proto-col col-4 filter-col protograph-filter-area">
-            <div className="summary">
-              <div className="article-share-icons">
-                <a href='#' id='facebook-share-link' target="_blank"><div className="single-share-icon"><img src="https://cdn.protograph.pykih.com/Assets/proto-app/img/article-share-facebook.png"/></div></a>
-                <a href='#' id='twitter-share-link' target="_blank"><div className="single-share-icon"><img src="https://cdn.protograph.pykih.com/Assets/proto-app/img/article-share-twitter.png"/></div></a>
-              </div>
-              {
-                ProtoGraph.page.summary &&
-                  <div className="summary-text">Our aim is to gather evidence regarding the nature, extent and gravity of religion-based hate violence, through rigorous methods and standards.</div>
-              }
-            </div>
-            <Filter
-              configurationJSON={this.props.filterConfigurationJSON}
-              dataJSON={this.state.filteredDataJSON}
-              filterJSON={this.state.filterJSON}
-              onChange={(e) => {this.onChange(e);}}
-              hintText="Select a parameter to filter by its value."
-            />
-          </div>
-          <div className="proto-col col-12 protograph-app-map-and-list">
-              <div className="tabs-area">
-                <div className="single-tab active-tab" id='map-tab' data-href='#map-area' >MAP</div>
-                <div className="single-tab" id='list-tab' data-href='#list-area'>LIST</div>
-              </div>
-              <div className="tabs map-area active-area" id='map-area'>
-                <div className="map-hint-text">Click on the circle to see details of the incident</div>
-                <Map
-                  dataJSON={this.state.filteredDataJSON}
-                  topoJSON={this.state.topoJSON}
-                  showModal={this.showModal}
-                  mode={this.props.mode}
-                  chartOptions={this.props.chartOptions}
-                />
-              </div>
-              <div className="tabs list-area" id='list-area'>
-                <List
-                  dataJSON={this.state.filteredDataJSON}
-                  mode={this.props.mode}
-                  showModal={this.showModal}
-                />
-              </div>
-              <Modal
-                showModal={this.state.showModal}
-                closeModal={this.closeModal}
-                mode={this.state.mode}
-                iframeURL={this.state.iframeURL}
-              />
-          </div>
-        </div>
+      return ( <div className = "banner-area" >
+        <div className = "proto-col col-4 filter-col protograph-filter-area" >
+        <div className = "summary" >
+        <div className = "article-share-icons" >
+        <a href = '#'
+        id = 'facebook-share-link'
+        target = "_blank" > < div className = "single-share-icon" > < img src = "https://cdn.protograph.pykih.com/Assets/proto-app/img/article-share-facebook.png" / > </div></a>
+        <a href = '#'
+        id = 'twitter-share-link'
+        target = "_blank" > < div className = "single-share-icon" > < img src = "https://cdn.protograph.pykih.com/Assets/proto-app/img/article-share-twitter.png" / > </div></a>
+        </div> {
+          ProtoGraph.page.summary &&
+            <div className = "summary-text" > {
+              ProtoGraph.page.summary
+            } </div>
+        } </div> 
+        <Filter configurationJSON = {
+          this.props.filterConfigurationJSON
+        }
+        dataJSON = {
+          this.state.filteredDataJSON
+        }
+        filterJSON = {
+          this.state.filterJSON
+        }
+        onChange = {
+          (e) => {
+            this.onChange(e);
+          }
+        }
+        hintText = "Select a parameter to filter by its value." /
+        >
+        </div> <div className = "proto-col col-12 protograph-app-map-and-list" >
+        <div className = "tabs-area" >
+        <div className = "single-tab"
+        id = 'map-tab'
+        data-href = '#map-area' > MAP </div> <div className = "single-tab active-tab"
+        id = 'list-tab'
+        data-href = '#list-area' > LIST </div> </div> <div className = "tabs map-area"
+        id = 'map-area' >
+        <div className = "map-hint-text" > Click on the circle to see details of the incident </div> <
+        Map dataJSON = {
+          this.state.filteredDataJSON
+        }
+        topoJSON = {
+          this.state.topoJSON
+        }
+        showModal = {
+          this.showModal
+        }
+        mode = {
+          this.props.mode
+        }
+        chartOptions = {
+          this.props.chartOptions
+        }
+        /> </div> <div className = "tabs list-area active-area"
+        id = 'list-area' >
+        <
+        List dataJSON = {
+          this.state.filteredDataJSON
+        }
+        mode = {
+          this.props.mode
+        }
+        showModal = {
+          this.showModal
+        }
+        /> </div> <
+        Modal showModal = {
+          this.state.showModal
+        }
+        closeModal = {
+          this.closeModal
+        }
+        mode = {
+          this.state.mode
+        }
+        iframeURL = {
+          this.state.iframeURL
+        }
+        /> </div> </div>
       )
     }
   }
@@ -406,7 +485,7 @@ class App extends React.Component {
       e = d.documentElement,
       g = d.getElementsByTagName('body')[0],
       width = w.innerWidth || e.clientWidth || g.clientWidth,
-      height = w.innerHeight|| e.clientHeight|| g.clientHeight;
+      height = w.innerHeight || e.clientHeight || g.clientHeight;
 
     return {
       width: width,
