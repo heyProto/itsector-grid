@@ -63,7 +63,6 @@ export default class Modal extends React.Component {
   }
 
   renderTabs() {
-    console.log(this.state)
     let tabs = this.state.tabs;
     let tabNames;
     let tabClass;
@@ -94,7 +93,6 @@ export default class Modal extends React.Component {
   removeArrElem(array, element) {
     const index = array.indexOf(element);
     array.splice(index, 1);
-    console.log(array, "Array");
   }
 
   renderTabContent(tab) {
@@ -103,6 +101,7 @@ export default class Modal extends React.Component {
       case 1:
       let data2 = this.props.data;
       let widthFactor = 300/Math.max(data2.caste_discrimination, data2.womens_rights, data2.religious_intolerance, data2.lgbtqi_rights, data2.foe, data2.farm_crisis, data2.workers_rights)
+      widthFactor = widthFactor == Infinity ? 0 : widthFactor
       return (<div className="graph-container">
       <div className="graph">
         <div className="categories">
@@ -115,14 +114,14 @@ export default class Modal extends React.Component {
           <div className="category">Workers Rights</div>
         </div>
         <div className="bars">
-        </div>
-        <div className="bar-container"><div className="bar" style={{width: data2.caste_discrimination*widthFactor}}></div></div>
-        <div className="bar-container"><div className="bar" style={{width: data2.womens_rights*widthFactor}}></div></div>
-        <div className="bar-container"><div className="bar" style={{width: data2.religious_intolerance*widthFactor}}></div></div>
-        <div className="bar-container"><div className="bar" style={{width: data2.lgbtqi_rights*widthFactor}}></div></div>
-        <div className="bar-container"><div className="bar" style={{width: data2.foe*widthFactor}}></div></div>
-        <div className="bar-container"><div className="bar" style={{width: data2.farm_crisis*widthFactor}}></div></div>
-        <div className="bar-container"><div className="bar" style={{width: data2.workers_rights*widthFactor}}></div></div>
+        
+        <div className="bar-container"><div className="bar" style={{width: data2.caste_discrimination*widthFactor}}></div><div className="alt-bar" style={{width: 300 - data2.caste_discrimination*widthFactor}}></div></div>
+        <div className="bar-container"><div className="bar" style={{width: data2.womens_rights*widthFactor}}></div><div className="alt-bar" style={{width: 300 - data2.womens_rights*widthFactor}}></div></div>
+        <div className="bar-container"><div className="bar" style={{width: data2.religious_intolerance*widthFactor}}></div><div className="alt-bar" style={{width: 300 - data2.religious_intolerance*widthFactor}}></div></div>
+        <div className="bar-container"><div className="bar" style={{width: data2.lgbtqi_rights*widthFactor}}></div><div className="alt-bar" style={{width: 300 - data2.lgbtqi_rights*widthFactor}}></div></div>
+        <div className="bar-container"><div className="bar" style={{width: data2.foe*widthFactor}}></div><div className="alt-bar" style={{width: 300 - data2.foe*widthFactor}}></div></div>
+        <div className="bar-container"><div className="bar" style={{width: data2.farm_crisis*widthFactor}}></div><div className="alt-bar" style={{width: 300 - data2.farm_crisis*widthFactor}}></div></div>
+        <div className="bar-container"><div className="bar" style={{width: data2.workers_rights*widthFactor}}></div><div className="alt-bar" style={{width: 300 - data2.workers_rights*widthFactor}}></div></div>
         </div>
         <div className="labels">
           <div className="chart-label">{data2.caste_discrimination}</div>
@@ -133,10 +132,10 @@ export default class Modal extends React.Component {
           <div className="chart-label">{data2.farm_crisis}</div>
           <div className="chart-label">{data2.workers_rights}</div>
         </div>
+      </div>
       </div>)
       case 2:
         let data = this.props.data;
-        console.log(data)
         return (
           <div>
             <div className="half-width-parameter">
@@ -207,7 +206,7 @@ export default class Modal extends React.Component {
             <div className="card-title">
               <a href={data.twitter_handle}>{data.name}</a>
             </div>
-            {data.leadership_role}, {data.company}
+            {data.leadership_role}, <a href={data.company_url ? data.company_url: '#'}>{data.company}</a>
             <div className="card-tabs">{this.renderTabs()}</div>
             <div className="tab-content">
               {this.renderTabContent(this.state.activeCounter)}

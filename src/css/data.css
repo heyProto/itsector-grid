@@ -624,6 +624,7 @@
   text-align: center;
   border-radius: 50%;
   cursor: pointer;
+  z-index: 1000;
 }
 
 .protograph-close-text {
@@ -1247,7 +1248,10 @@
 }
 
 .labels {
-  width: 10%
+  display: flex;
+    width: 10%;
+    align-items: center;
+    flex-direction: column;
 }
 
 .bars {
@@ -1270,6 +1274,11 @@
 
 .bar {
   background-color: rgba(50, 138, 171);
+  height: 26px;
+}
+
+.alt-bar {
+  background-color: rgb(241, 241, 241);
   height: 26px;
 }
 
