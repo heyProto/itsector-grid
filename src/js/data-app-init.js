@@ -29,7 +29,35 @@ ProtoGraph.initDataApp = function () {
             {
                 "alias": "Role",
                 "propName": "leadership_role"
-            }
+            },
+            {
+                "alias": "Tweeted about caste discrimination?",
+                "propName": "caste_boolean"
+            },
+            {
+                "alias": "Tweeted about women's rights?",
+                "propName": "womens_boolean"
+            },
+            {
+                "alias": "Tweeted about religious intolerance?",
+                "propName": "religious_boolean"
+            },
+            {
+                "alias": "Tweeted about LGBTQI rights?",
+                "propName": "lgbtqi_boolean"
+            },
+            {
+                "alias": "Tweeted about FoE?",
+                "propName": "foe_boolean"
+            },
+            {
+                "alias": "Tweeted about farm crisis?",
+                "propName": "farm_boolean"
+            },
+            {
+                "alias": "Tweeted about workers' rights?",
+                "propName": "workers_boolean"
+            },
         ]
     });
     x.renderLaptop();

@@ -64,7 +64,7 @@ class ListCards extends React.Component {
   render() {
     console.log(this.props.showModal, 'showModal')
     if (this.props.dataJSON.length === 0) {
-      return(<h2>No cards to display</h2>)
+      return(<h3>No company head has tweeted on this issue.</h3>)
     } else {
       let cards = this.state.cardsVisible.map((card, i) => {
         let class_name = (((i+1)% this.state.cardsInRow) == 0) ? "protograph-card div-without-margin-right" : "protograph-card";
