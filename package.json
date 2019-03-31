@@ -9,6 +9,7 @@
     "d3-voronoi": "^1.1.2",
     "halogen": "^0.2.0",
     "halogenium": "^2.2.3",
+    "moment": "^2.24.0",
     "react": "^16.4.2",
     "react-dom": "^16.3.1",
     "react-modal": "^3.1.10",
