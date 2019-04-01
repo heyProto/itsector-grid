@@ -969,6 +969,10 @@
     margin-bottom: 100px;
   }
 
+  .div-without-margin-right {
+    margin-right: 10px;
+  }
+
   .protograph-modal {
     left: 0%;
     width: 100vw;
@@ -1057,6 +1061,7 @@
 
   .protograph-grid-card {
     float: none;
+    vertical-align: top;
   }
 
   .map-nav {

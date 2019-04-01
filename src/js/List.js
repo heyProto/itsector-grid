@@ -74,7 +74,6 @@ class ListCards extends React.Component {
               onClick={this.props.showModal}
               data-viewcast_id={card.view_cast_id}
               className={`protograph-grid-card protograph-trigger-modal ${class_name}`}
-              data-district_code={card.district}
               >
               <div className="proto-card-content" data-iframe_url={card.iframe_url}>
                 {/* <div className="proto-card-date">{card.name}</div> */}
