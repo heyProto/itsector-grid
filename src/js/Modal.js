@@ -12,7 +12,7 @@ export default class Modal extends React.Component {
       languageTexts: undefined,
       siteConfigs: this.props.siteConfigs,
       activeCounter: 1,
-      tabs: ["Tweets", "Details"],
+      tabs: ["Tweets"],
       translateValue: 50,
       visible: false,
     };
@@ -212,26 +212,6 @@ export default class Modal extends React.Component {
             </div>
           </div>
         );
-      case 2:
-        let data = this.props.data;
-        return (
-          <div>
-            <div className="half-width-parameter">
-              <div className="single-parameter">
-                <div className="parameter-label">Position</div>
-                <p>{data.leadership_role}</p>
-              </div>
-              <div className="single-parameter">
-                <div className="parameter-label">Company</div>
-                <p>{data.company}</p>
-              </div>
-              <div className="single-parameter">
-                <div className="parameter-label">Verified</div>
-                <p>{data.verified}</p>
-              </div>
-            </div>
-          </div>
-        );
 
         break;
     }
@@ -279,12 +259,13 @@ export default class Modal extends React.Component {
             <div id="protograph_div" className="protograph-col7-mode">
               <div className="news-card">
                 <div className="card-title">
-                  <a href={data.twitter_handle}>{data.name}</a>
+                  {data.name}
+                  <a href={data.twitter_handle} target="_blank"><img src="https://cdn.protograph.pykih.com/Assets/social-icons/twitter-outline.png" style={{width: '20px', verticalAlign: 'text-bottom', marginLeft: '10px'}}></img></a>
                 </div>
                 {data.leadership_role},{" "}
-                <a href={data.company_url ? data.company_url : "#"}>
+                {data.company_url ? <a href={data.company_url} target="_blank">
                   {data.company}
-                </a>
+                </a> : data.company}
                 <div className="card-tabs">{this.renderTabs()}</div>
                 <div className="tab-content">
                   {this.renderTabContent(this.state.activeCounter)}
@@ -307,7 +288,7 @@ export default class Modal extends React.Component {
   }
 
   renderCol4() {
-    let data = this.state.dataJSON.data;
+    let data = this.props.data;
     return (
       <ReactModal
         isOpen={this.props.showModal}
@@ -324,6 +305,7 @@ export default class Modal extends React.Component {
         shouldCloseOnEsc={false}
         shouldReturnFocusAfterClose={true}
         role="dialog"
+        style={{ display: "block" }}
         parentSelector={() => document.body}
         aria={{
           labelledby: "heading",
@@ -343,20 +325,21 @@ export default class Modal extends React.Component {
         </div>
         {data && (
           <div id="protograph_modal_card">
-            <div id="protograph_div" className="protograph-col4-mode">
-              {/* content */}
-              <div className="news-card news-card-mobile">
-                <button className="card-date" disabled="true">
-                  {date}
-                </button>
-                <div className="card-title">{data.name}</div>
-                <div className="card-tabs card-tabs-mobile">
-                  {this.renderTabs()}
+            <div id="protograph_div" className="protograph-col7-mode">
+              <div className="news-card">
+                <div className="card-title">
+                  {data.name}
+                  <a href={data.twitter_handle} target="_blank"><img src="https://cdn.protograph.pykih.com/Assets/social-icons/twitter-outline.png" style={{width: '20px', verticalAlign: 'text-bottom', marginLeft: '10px'}}></img></a>
                 </div>
+                {data.leadership_role},{" "}
+                {data.company_url ? <a href={data.company_url} target="_blank">
+                  {data.company}
+                </a> : data.company}
+                <div className="card-tabs">{this.renderTabs()}</div>
                 <div className="tab-content">
                   {this.renderTabContent(this.state.activeCounter)}
                 </div>
-                <div className="card-footer card-footer-mobile">
+                <div className="card-footer">
                   <img
                     className="logo-img"
                     src={

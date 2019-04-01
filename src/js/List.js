@@ -76,9 +76,9 @@ class ListCards extends React.Component {
               className={`protograph-grid-card protograph-trigger-modal ${class_name}`}
               >
               <div className="proto-card-content" data-iframe_url={card.iframe_url}>
-                {/* <div className="proto-card-date">{card.name}</div> */}
-                <div className="proto-card-location">{card.name}</div>
-                  <div className="proto-context">{card.leadership_role}, {card.company}</div>
+                <div className="proto-card-location">{card.name.substring(0, card.name.lastIndexOf(" ") + 1)}<br></br>
+{card.name.substring(card.name.lastIndexOf(" ") + 1, card.name.length)}</div>
+                  <div className="proto-context"><span className="role">{card.leadership_role}</span><br></br> {card.company}</div>
               </div>
           </div>
         )

@@ -23,12 +23,8 @@ ProtoGraph.initDataApp = function() {
     },
     filters: [
       {
-        alias: "Active",
+        alias: "Active on Twitter",
         propName: "active",
-      },
-      {
-        alias: "Role",
-        propName: "leadership_role",
       },
       {
         alias: "Tweeted about caste discrimination?",

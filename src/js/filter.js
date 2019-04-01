@@ -13,6 +13,7 @@ export default class Filter extends React.Component {
       return e;
     });
     filterJSON[0].is_active = true;
+    console.log(filterJSON)
 
     var stateVars = {
       moveIn: undefined,

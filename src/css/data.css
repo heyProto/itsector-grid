@@ -10,6 +10,10 @@
   src: url("https://cdn.protograph.pykih.com/lib/AEH.ttf") format("opentype");
 }
 
+body {
+  font-family: AvenirLTStd-Book, sans-serif; 
+}
+
 .cover-image {
   background-image: url("../../../img/cover-image.png");
   background-repeat: none;
@@ -385,7 +389,7 @@
 
 .proto-context {
   font-family: AvenirLTStd-Book;
-  font-size: 14px;
+  font-size: 12px;
   position: absolute;
   bottom: 0;
   margin-bottom: 5px;
@@ -1107,7 +1111,7 @@
 
 .news-card .card-title {
   font-size: 20px;
-  font-weight: bold;
+  font-family: Avenir-Bold, sans-serif;
   color: #333;
 }
 
@@ -1201,9 +1205,9 @@
 }
 
 .news-card a {
-  color: rgba(50, 138, 171) !important;
+  color: black;
   background: 0 0;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 .card-date {
@@ -1220,7 +1224,6 @@
 
 .logo-img {
   height: 40px;
-  border-radius: 50%;
   margin: 0%;
 }
 
@@ -1243,6 +1246,10 @@
 
 .news-card-mobile .card-footer-mobile {
   width: 300px;
+}
+
+span.role {
+  font-size: 10px;
 }
 
 /* chart code */
