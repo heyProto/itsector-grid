@@ -1,7 +1,8 @@
 /* Old jaljagran-style.css  */
 @font-face {
   font-family: AvenirLTStd-Book;
-  src: url("https://cdn.protograph.pykih.com/lib/AvenirLTStd-Book.otf") format("opentype");
+  src: url("https://cdn.protograph.pykih.com/lib/AvenirLTStd-Book.otf")
+    format("opentype");
 }
 
 @font-face {
@@ -337,7 +338,7 @@
   /*box-shadow: 0 20px 20px rgba(0,0,0,0.08);*/
   /*box-shadow: 0 2px 3px rgba(0,0,0,0.1);*/
   /*border: 1px solid rgb(241, 241, 241);*/
-  transition: all 250ms cubic-bezier(.02, .01, .47, 1);
+  transition: all 250ms cubic-bezier(0.02, 0.01, 0.47, 1);
 }
 
 .protograph-card img {
@@ -385,6 +386,9 @@
 .proto-context {
   font-family: AvenirLTStd-Book;
   font-size: 14px;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 5px;
 }
 
 .proto-context-title {
@@ -439,7 +443,7 @@
   padding: 10px;
   position: absolute;
   transition: all 0.35s;
-  font-family: AvenirLTStd-Book
+  font-family: AvenirLTStd-Book;
 }
 
 .tooltip-location {
@@ -518,7 +522,7 @@
 }
 
 .protograph-app-filter-close-button {
-  padding: 18px 20px 17px 20px
+  padding: 18px 20px 17px 20px;
 }
 
 .protograph-app-filter-icon-slide-down {
@@ -839,7 +843,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%)
+  transform: translate(-50%, -50%);
 }
 
 .map-hint-text {
@@ -1090,7 +1094,6 @@
   position: relative;
   box-sizing: border-box;
   padding: 16px;
-  font-family: "cabin";
   height: 580px;
   border-radius: 4px;
   border: 1px solid #efefef;
@@ -1101,7 +1104,6 @@
   font-size: 20px;
   font-weight: bold;
   color: #333;
-  font-family: "bitter";
 }
 
 .news-card .card-tabs {
@@ -1244,18 +1246,18 @@
 }
 
 .categories {
-  width: 30%
+  width: 30%;
 }
 
 .labels {
   display: flex;
-    width: 10%;
-    align-items: center;
-    flex-direction: column;
+  width: 10%;
+  align-items: center;
+  flex-direction: column;
 }
 
 .bars {
-  width: 60%
+  width: 60%;
 }
 
 .category {
@@ -1267,7 +1269,7 @@
 }
 
 .bar-container {
-  display:flex;
+  display: flex;
   height: 30px;
   align-items: center;
 }
