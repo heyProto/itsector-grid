@@ -293,7 +293,7 @@ export default class Modal extends React.Component {
                   <img
                     className="logo-img"
                     src={
-                      "https://cdn.protograph.pykih.com/79c10f895565f79dca4b/is_logo.jpeg"
+                      "https://www.responsiblebiz.org/images/oxfamirbi/0c1c355e14de082d/6260.png"
                     }
                   />
                 </div>
