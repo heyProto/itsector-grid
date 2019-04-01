@@ -219,6 +219,7 @@ export default class Modal extends React.Component {
 
   renderCol7() {
     let data = this.props.data;
+    console.log(data)
 
     return (
       <ReactModal
