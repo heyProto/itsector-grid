@@ -91,9 +91,6 @@ class ListCards extends React.Component {
           {this.state.no_of_cards < this.props.dataJSON.length ? <button id="show-more-cards" onClick={(e) => this.loadMoreCard()}>Show more</button> : null}
         </div>
       )
-      return(
-        <div>List to come here</div>
-      )
     }
   }
 }
