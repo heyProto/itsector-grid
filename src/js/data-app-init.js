@@ -55,6 +55,13 @@ ProtoGraph.initDataApp = function() {
         propName: "workers_boolean",
       },
     ],
+    defaultFilters: [
+      {
+        alias: "Active on Twitter",
+        propName: "active",
+        value: "Yes"
+      }
+    ]
   });
   x.renderLaptop();
 };

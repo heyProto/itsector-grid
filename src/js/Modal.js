@@ -100,29 +100,51 @@ export default class Modal extends React.Component {
     switch (tab) {
       case 1:
         let data2 = this.props.data;
+        let barWidth = 320;
+        let relevantSum = [data2.caste_discrimination,
+          data2.womens_rights,
+          data2.religious_intolerance,
+          data2.lgbtqi_rights,
+          data2.foe,
+          data2.farm_crisis,
+          data2.workers_rights].reduce((a, b) => a + b);
+
         let widthFactor =
-          300 /
-          Math.max(
-            data2.caste_discrimination,
-            data2.womens_rights,
-            data2.religious_intolerance,
-            data2.lgbtqi_rights,
-            data2.foe,
-            data2.farm_crisis,
-            data2.workers_rights
-          );
-        widthFactor = widthFactor == Infinity ? 0 : widthFactor;
+        barWidth /
+        relevantSum;
+        let tweetFactor = 400/data2.no_of_tweets
         return (
           <div className="graph-container">
+          <div className="graph-header">Topic relevant tweets of overall tweets</div>
+          <div className="graph">
+            <div className="tweet-graph">
+            <div className="bars" style={{width: '87%'}}><div className="bar-container">
+              <div
+                      className="bar"
+                      style={{ width: relevantSum * tweetFactor, minWidth: '5px' }}
+                    />
+                    <div
+                      className="alt-bar"
+                      style={{
+                        width: '100%'
+                      }}
+                    />
+              </div></div>
+               <div className="labels"> <div className="chart-label">{data2.no_of_tweets}</div></div>
+              </div>
+            
+          </div>
+          <div className="tweet-no-tag">{relevantSum} <img src="https://s3.ap-south-1.amazonaws.com/cdn.protograph/lib/twitter-solid-blue.png" width="20.5px" height="16.5px" /></div> 
+          <div className="graph-header">Percentage breakdown of topic relevant tweets</div>
             <div className="graph">
               <div className="categories">
-                <div className="category">Caste Discrimination</div>
-                <div className="category">Women's Rights</div>
-                <div className="category">Religious Intolerance</div>
-                <div className="category">LGBTQI Rights</div>
-                <div className="category">FoE</div>
-                <div className="category">Farm Crisis</div>
-                <div className="category">Workers Rights</div>
+                <div className="category" style={{fontWeight: data2.caste_discrimination > 0 ? '800' : 'unset'}}>Caste Discrimination</div>
+                <div className="category" style={{fontWeight: data2.womens_rights > 0 ? '800' : 'unset'}}>Women's Rights</div>
+                <div className="category" style={{fontWeight: data2.religious_intolerance > 0 ? '800' : 'unset'}}>Religious Intolerance</div>
+                <div className="category" style={{fontWeight: data2.lgbtqi_rights > 0 ? '800' : 'unset'}}>LGBTQI Rights</div>
+                <div className="category" style={{fontWeight: data2.foe > 0 ? '800' : 'unset'}}>FoE</div>
+                <div className="category" style={{fontWeight: data2.farm_crisis > 0 ? '800' : 'unset'}}>Farm Crisis</div>
+                <div className="category" style={{fontWeight: data2.workers_rights > 0 ? '800' : 'unset'}}>Workers Rights</div>
               </div>
               <div className="bars">
                 <div className="bar-container">
@@ -133,7 +155,7 @@ export default class Modal extends React.Component {
                   <div
                     className="alt-bar"
                     style={{
-                      width: 300 - data2.caste_discrimination * widthFactor,
+                      width: barWidth - data2.caste_discrimination * widthFactor,
                     }}
                   />
                 </div>
@@ -144,7 +166,7 @@ export default class Modal extends React.Component {
                   />
                   <div
                     className="alt-bar"
-                    style={{ width: 300 - data2.womens_rights * widthFactor }}
+                    style={{ width: barWidth - data2.womens_rights * widthFactor }}
                   />
                 </div>
                 <div className="bar-container">
@@ -155,7 +177,7 @@ export default class Modal extends React.Component {
                   <div
                     className="alt-bar"
                     style={{
-                      width: 300 - data2.religious_intolerance * widthFactor,
+                      width: barWidth - data2.religious_intolerance * widthFactor,
                     }}
                   />
                 </div>
@@ -166,7 +188,7 @@ export default class Modal extends React.Component {
                   />
                   <div
                     className="alt-bar"
-                    style={{ width: 300 - data2.lgbtqi_rights * widthFactor }}
+                    style={{ width: barWidth - data2.lgbtqi_rights * widthFactor }}
                   />
                 </div>
                 <div className="bar-container">
@@ -176,7 +198,7 @@ export default class Modal extends React.Component {
                   />
                   <div
                     className="alt-bar"
-                    style={{ width: 300 - data2.foe * widthFactor }}
+                    style={{ width: barWidth - data2.foe * widthFactor }}
                   />
                 </div>
                 <div className="bar-container">
@@ -186,7 +208,7 @@ export default class Modal extends React.Component {
                   />
                   <div
                     className="alt-bar"
-                    style={{ width: 300 - data2.farm_crisis * widthFactor }}
+                    style={{ width: barWidth - data2.farm_crisis * widthFactor }}
                   />
                 </div>
                 <div className="bar-container">
@@ -196,18 +218,18 @@ export default class Modal extends React.Component {
                   />
                   <div
                     className="alt-bar"
-                    style={{ width: 300 - data2.workers_rights * widthFactor }}
+                    style={{ width: barWidth - data2.workers_rights * widthFactor }}
                   />
                 </div>
               </div>
               <div className="labels">
-                <div className="chart-label">{data2.caste_discrimination}</div>
-                <div className="chart-label">{data2.womens_rights}</div>
-                <div className="chart-label">{data2.religious_intolerance}</div>
-                <div className="chart-label">{data2.lgbtqi_rights}</div>
-                <div className="chart-label">{data2.foe}</div>
-                <div className="chart-label">{data2.farm_crisis}</div>
-                <div className="chart-label">{data2.workers_rights}</div>
+                <div className="chart-label" style={{fontWeight: data2.caste_discrimination > 0 ? '800' : 'unset'}}>{data2.caste_discrimination} {data2.caste_discrimination > 0 ? '(' + Math.floor(data2.caste_discrimination*100/relevantSum) + '%)':''}</div>
+                <div className="chart-label" style={{fontWeight: data2.womens_rights > 0 ? '800' : 'unset'}}>{data2.womens_rights} {data2.womens_rights > 0 ? '(' + Math.floor(data2.womens_rights*100/relevantSum) + '%)':''}</div>
+                <div className="chart-label" style={{fontWeight: data2.religious_intolerance > 0 ? '800' : 'unset'}}>{data2.religious_intolerance} {data2.religious_intolerance > 0 ? '(' + Math.floor(data2.religious_intolerance*100/relevantSum) + '%)':''}</div>
+                <div className="chart-label" style={{fontWeight: data2.lgbtqi_rights > 0 ? '800' : 'unset'}}>{data2.lgbtqi_rights} {data2.lgbtqi_rights > 0 ? '(' + Math.floor(data2.lgbtqi_rights*100/relevantSum) + '%)':''}</div>
+                <div className="chart-label" style={{fontWeight: data2.foe > 0 ? '800' : 'unset'}}>{data2.foe} {data2.foe > 0 ? '(' + Math.floor(data2.foe*100/relevantSum) + '%)':''}</div>
+                <div className="chart-label" style={{fontWeight: data2.farm_crisis > 0 ? '800' : 'unset'}}>{data2.farm_crisis} {data2.farm_crisis > 0 ? '(' + Math.floor(data2.farm_crisis*100/relevantSum) + '%)':''}</div>
+                <div className="chart-label" style={{fontWeight: data2.workers_rights > 0 ? '800' : 'unset'}}>{data2.workers_rights} {data2.workers_rights > 0 ? '(' + Math.floor(data2.workers_rights*100/relevantSum) + '%)':''}</div>
               </div>
             </div>
           </div>
@@ -219,7 +241,6 @@ export default class Modal extends React.Component {
 
   renderCol7() {
     let data = this.props.data;
-    console.log(data)
 
     return (
       <ReactModal
@@ -260,14 +281,14 @@ export default class Modal extends React.Component {
             <div id="protograph_div" className="protograph-col7-mode">
               <div className="news-card">
                 <div className="card-title">
-                  {data.name}
-                  <a href={data.twitter_handle} target="_blank"><img src="https://cdn.protograph.pykih.com/Assets/social-icons/twitter-outline.png" style={{width: '20px', verticalAlign: 'text-bottom', marginLeft: '10px'}}></img></a>
+                  <span>{data.name}</span>
+                  <a href={data.twitter_handle} target="_blank"><div className="twitter-link"><img src="https://s3.ap-south-1.amazonaws.com/cdn.protograph/lib/twitter-solid-white.png" height="16.5px" width="20.5px" /> Visit Profile</div></a>
                 </div>
                 {data.leadership_role},{" "}
                 {data.company_url ? <a href={data.company_url} target="_blank">
                   {data.company}
                 </a> : data.company}
-                <div className="card-tabs">{this.renderTabs()}</div>
+                {/* <div className="card-tabs">{this.renderTabs()}</div> */}
                 <div className="tab-content">
                   {this.renderTabContent(this.state.activeCounter)}
                 </div>
@@ -330,13 +351,13 @@ export default class Modal extends React.Component {
               <div className="news-card">
                 <div className="card-title">
                   {data.name}
-                  <a href={data.twitter_handle} target="_blank"><img src="https://cdn.protograph.pykih.com/Assets/social-icons/twitter-outline.png" style={{width: '20px', verticalAlign: 'text-bottom', marginLeft: '10px'}}></img></a>
+                  <a href={data.twitter_handle} target="_blank"><div className="twitter-link"><img src="https://s3.ap-south-1.amazonaws.com/cdn.protograph/lib/twitter-solid-white.png" height="16.5px" width="20.5px" /></div></a>
                 </div>
                 {data.leadership_role},{" "}
                 {data.company_url ? <a href={data.company_url} target="_blank">
                   {data.company}
                 </a> : data.company}
-                <div className="card-tabs">{this.renderTabs()}</div>
+                {/* <div className="card-tabs">{this.renderTabs()}</div> */}
                 <div className="tab-content">
                   {this.renderTabContent(this.state.activeCounter)}
                 </div>

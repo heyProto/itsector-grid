@@ -907,6 +907,289 @@ body {
   cursor: pointer;
 }
 
+.news-card {
+  /*width: 540px;*/
+  /*display: inline-block;*/
+  position: relative;
+  box-sizing: border-box;
+  padding: 16px;
+  height: 580px;
+  border-radius: 4px;
+  border: 1px solid #efefef;
+  overflow: hidden;
+}
+
+.news-card .card-title {
+  font-size: 24px;
+    font-family: Avenir-Bold, sans-serif;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.news-card .card-tabs {
+  width: 540px;
+  margin-left: -16px;
+  margin-top: 32px;
+  border-bottom: 1px solid #efefef;
+  margin-bottom: 16px;
+}
+
+.news-card .card-tabs .single-tab {
+  font-size: 12px;
+  color: #9a9a9a;
+  text-transform: uppercase;
+  width: 108px;
+  border-bottom: 2px solid white;
+  display: inline-block;
+  text-align: center;
+  padding-bottom: 5px;
+  letter-spacing: 0.5px;
+}
+
+.news-card .single-tab.active {
+  border-bottom: 2px solid rgba(50, 138, 171);
+  color: rgba(50, 138, 171);
+}
+
+.news-card p {
+  font-size: 14px;
+  color: #525252;
+  margin: 0px;
+  padding: 0px;
+  line-height: 21px;
+  margin-bottom: 8px;
+  white-space: pre-wrap;
+}
+
+.news-card .parameter-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  color: #9a9a9a;
+  margin-bottom: 4px;
+}
+
+.news-card .parameter-small-label {
+  font-size: 10px;
+  text-transform: capitalize;
+  color: #7a7a7a;
+  margin-bottom: 4px;
+}
+
+.news-card .card-footer {
+  /*height: 45px;*/
+  border-top: 1px solid #efefef;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  padding: 4px 8px;
+  width: 540px;
+  box-sizing: border-box;
+}
+
+.news-card .call-to-action-button {
+  font-size: 12px;
+  color: rgba(50, 138, 171);
+  background: white;
+  padding: 6px 10px;
+  box-sizing: border-box;
+  float: right;
+  margin-top: 2px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+  border: rgba(50, 138, 171) solid 0.5px;
+}
+
+.news-card .half-width-parameter {
+  width: 253px;
+  display: inline-block;
+  float: left;
+}
+
+.news-card .half-width-parameter p {
+  width: 240px;
+}
+
+.news-card .single-parameter {
+  margin-bottom: 8px;
+  width: 100%;
+  display: inline-block;
+}
+
+.news-card a {
+  color: black;
+  background: 0 0;
+  text-decoration: underline;
+}
+
+.card-date {
+  color: rgba(50, 138, 171);
+  background: white;
+  border-radius: 4px;
+  border-color: rgba(50, 138, 171);
+  border-width: 1px;
+  margin-bottom: 10px;
+  padding: 5px;
+  text-align: center;
+  border: 1px solid rgba(50, 138, 171);
+}
+
+.logo-img {
+  height: 40px;
+  margin: 0%;
+}
+
+.news-card-mobile {
+  width: 300px;
+}
+
+.news-card-mobile .card-tabs-mobile {
+  width: 300px;
+}
+
+.news-card-mobile .card-tabs-mobile .single-tab-mobile {
+  width: 99px;
+  font-size: 11px;
+}
+
+.news-card-mobile .call-to-action-button-mobile {
+  font-size: 10px;
+}
+
+.news-card-mobile .card-footer-mobile {
+  width: 300px;
+}
+
+span.role {
+  font-size: 10px;
+}
+
+.twitter-link {
+  background: rgb(70, 157, 229);
+    border: 1px solid rgb(67, 151, 219);
+    padding: 3px 4px;
+    border-radius: 4px;
+    color: white;
+    font-size: 14px;
+    text-decoration: none;
+    display: inline-flex;
+    float: right;
+    width: 110px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+/* chart code */
+.graph {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.graph-header {
+    margin-top: 20px;
+    color: rgba(50, 138, 171);
+    font-weight: 600;
+}
+
+.tweet-graph {
+  display: flex;
+  justify-content: space-between;
+    width: 100%;
+}
+
+.tweet-no-tag {
+  width: 52px;
+  height: 30px;
+  background-color: #fafafa;
+  border: 1px solid #eeeeee;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.categories {
+  width: 25%;
+}
+
+.labels {
+  display: flex;
+  width: 10%;
+  align-items: center;
+  flex-direction: column;
+}
+
+.bars {
+  width: 65%;
+}
+
+.bar, .alt-bar {
+  height: 6px;
+  border-radius: 100px;
+}
+
+.category {
+  display: flex;
+  font-size: 13px;
+  height: 30px;
+  align-items: center;
+}
+
+.bar-container {
+  display: flex;
+  height: 30px;
+  align-items: center;
+}
+
+.bar {
+  background-image: linear-gradient(to right, rgb(140, 208, 226), rgb(46, 127, 180));
+}
+
+.alt-bar {
+  background-color: rgb(241, 241, 241);
+}
+
+.chart-label {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+}
+
+
+.tooltip {
+  cursor: pointer;
+  position: relative;
+
+}
+
+.tooltip::after {
+  background: #333;
+    background: rgba(0,0,0,.8);
+    border-radius: 5px;
+    bottom: 26px;
+    color: #fff;
+    content: attr(title);
+    left: 20%;
+    padding: 5px 15px;
+    position: absolute;
+    z-index: 98;
+    width: max-content;
+
+}
+
+.tooltip::before{
+  border: solid;
+  border-color: #333 transparent;
+  border-width: 6px 6px 0 6px;
+  bottom: 20px;
+  content: "";
+  left: 50%;
+  position: absolute;
+  z-index: 99;
+}
+
+/* Note the above height and width are just samples. Change it as per the usecase. */
+
 @media only screen and (max-width: 500px) {
   body {
     background: white;
@@ -1077,7 +1360,7 @@ body {
     font-size: 12px;
   }
 
-  .news-card-mobile .card-tabs-mobile {
+  .news-card .card-tabs {
     width: 100vw;
   }
 
@@ -1087,219 +1370,36 @@ body {
     margin-right: auto;
   }
 
-  .news-card-mobile {
+  .news-card {
     width: 100vw;
+  }
+
+  .bars {
+    width: 50%;
+  }
+
+  .categories {
+    width: 30%;
+  }
+
+  .labels {
+    width: 20%;
+  }
+
+  .category {
+    font-size: 12px;
+    line-height: 1;
+    padding-right: 2px;
   }
 
   .protograph-close-modal {
     top: 20px;
     right: 15px;
   }
+
+  .twitter-link {
+    width: 25px;
+    margin-left: 10px;
+    float: none;
+  }
 }
-
-.news-card {
-  /*width: 540px;*/
-  /*display: inline-block;*/
-  position: relative;
-  box-sizing: border-box;
-  padding: 16px;
-  height: 580px;
-  border-radius: 4px;
-  border: 1px solid #efefef;
-  overflow: hidden;
-}
-
-.news-card .card-title {
-  font-size: 20px;
-  font-family: Avenir-Bold, sans-serif;
-  color: #333;
-}
-
-.news-card .card-tabs {
-  width: 540px;
-  margin-left: -16px;
-  margin-top: 32px;
-  border-bottom: 1px solid #efefef;
-  margin-bottom: 16px;
-}
-
-.news-card .card-tabs .single-tab {
-  font-size: 12px;
-  color: #9a9a9a;
-  text-transform: uppercase;
-  width: 108px;
-  border-bottom: 2px solid white;
-  display: inline-block;
-  text-align: center;
-  padding-bottom: 5px;
-  letter-spacing: 0.5px;
-}
-
-.news-card .single-tab.active {
-  border-bottom: 2px solid rgba(50, 138, 171);
-  color: rgba(50, 138, 171);
-}
-
-.news-card p {
-  font-size: 14px;
-  color: #525252;
-  margin: 0px;
-  padding: 0px;
-  line-height: 21px;
-  margin-bottom: 8px;
-  white-space: pre-wrap;
-}
-
-.news-card .parameter-label {
-  font-size: 10px;
-  text-transform: uppercase;
-  color: #9a9a9a;
-  margin-bottom: 4px;
-}
-
-.news-card .parameter-small-label {
-  font-size: 10px;
-  text-transform: capitalize;
-  color: #7a7a7a;
-  margin-bottom: 4px;
-}
-
-.news-card .card-footer {
-  /*height: 45px;*/
-  border-top: 1px solid #efefef;
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
-  padding: 4px 8px;
-  width: 540px;
-  box-sizing: border-box;
-}
-
-.news-card .call-to-action-button {
-  font-size: 12px;
-  color: rgba(50, 138, 171);
-  background: white;
-  padding: 6px 10px;
-  box-sizing: border-box;
-  float: right;
-  margin-top: 2px;
-  border-radius: 4px;
-  letter-spacing: 0.5px;
-  border: rgba(50, 138, 171) solid 0.5px;
-}
-
-.news-card .half-width-parameter {
-  width: 253px;
-  display: inline-block;
-  float: left;
-}
-
-.news-card .half-width-parameter p {
-  width: 240px;
-}
-
-.news-card .single-parameter {
-  margin-bottom: 8px;
-  width: 100%;
-  display: inline-block;
-}
-
-.news-card a {
-  color: black;
-  background: 0 0;
-  text-decoration: underline;
-}
-
-.card-date {
-  color: rgba(50, 138, 171);
-  background: white;
-  border-radius: 4px;
-  border-color: rgba(50, 138, 171);
-  border-width: 1px;
-  margin-bottom: 10px;
-  padding: 5px;
-  text-align: center;
-  border: 1px solid rgba(50, 138, 171);
-}
-
-.logo-img {
-  height: 40px;
-  margin: 0%;
-}
-
-.news-card-mobile {
-  width: 300px;
-}
-
-.news-card-mobile .card-tabs-mobile {
-  width: 300px;
-}
-
-.news-card-mobile .card-tabs-mobile .single-tab-mobile {
-  width: 99px;
-  font-size: 11px;
-}
-
-.news-card-mobile .call-to-action-button-mobile {
-  font-size: 10px;
-}
-
-.news-card-mobile .card-footer-mobile {
-  width: 300px;
-}
-
-span.role {
-  font-size: 10px;
-}
-
-/* chart code */
-.graph {
-  display: flex;
-}
-
-.categories {
-  width: 30%;
-}
-
-.labels {
-  display: flex;
-  width: 10%;
-  align-items: center;
-  flex-direction: column;
-}
-
-.bars {
-  width: 60%;
-}
-
-.category {
-  display: flex;
-  font-size: 14px;
-  height: 30px;
-
-  align-items: center;
-}
-
-.bar-container {
-  display: flex;
-  height: 30px;
-  align-items: center;
-}
-
-.bar {
-  background-color: rgba(50, 138, 171);
-  height: 26px;
-}
-
-.alt-bar {
-  background-color: rgb(241, 241, 241);
-  height: 26px;
-}
-
-.chart-label {
-  height: 30px;
-  display: flex;
-  align-items: center;
-}
-
-/* Note the above height and width are just samples. Change it as per the usecase. */

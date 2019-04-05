@@ -18,6 +18,7 @@ class App extends React.Component {
       filterJSON: [],
       filteredDataJSON: undefined,
       filters: this.props.filters,
+      defaultFilters: this.props.defaultFilters,
       showModal: false,
       card: undefined,
       mode: window.innerWidth <= 500 ? "col4" : "col7",
@@ -274,15 +275,17 @@ class App extends React.Component {
     if (typeof history.pushState != "undefined") {
       let url;
       let currentURL = document.location.href;
+      console.log(currentURL)
       if (currentURL.indexOf("#") !== -1) {
         url = currentURL.substring(0, currentURL.indexOf("#")) + "#" + company;
       } else if (currentURL[currentURL.length - 1] == "/") {
+        console.log(currentURL.substring(currentURL.lastIndexOf("#")))
         url =
-          currentURL.substring(currentURL.lastIndexOf("#" + 1)) + "#" + company;
+          currentURL.substring(currentURL.lastIndexOf("#")) + "#" + company;
       } else {
         url =
           currentURL.substring(currentURL.lastIndexOf("#" + 1)) +
-          "/#" +
+          "#" +
           company;
       }
       let obj = { Title: company, Url: url };
@@ -290,7 +293,6 @@ class App extends React.Component {
     } else {
       alert("Browser does not support HTML5.");
     }
-    console.log(this.state);
   }
 
   closeModal() {
@@ -409,9 +411,7 @@ class App extends React.Component {
                   </div>
                 </a>
               </div>
-              {ProtoGraph.page.summary && (
-                <div className="summary-text"> {ProtoGraph.page.summary} </div>
-              )}
+              <div className="summary-text">An analysis of tweets by Indian business leaders in support of most relevant social issues from 2010 - 2018 based on caste discrimination, women’s rights, religious intolerance, freedom of expression, LGBTQI rights, farm crisis and workers’ rights. <a href="https://www.responsiblebiz.org/stories/ceos-of-top-indian-companies-choose-to-remain-silent-on-civil-and-human-rights-issues.html" target="_blank">Read background.</a></div>
             </div>
             <Filter
               configurationJSON={this.props.filterConfigurationJSON}
@@ -421,14 +421,15 @@ class App extends React.Component {
                 this.onChange(e);
               }}
               hintText="Select a parameter to filter by its value."
+              defaultFilters={this.state.defaultFilters}
             />
           </div>
           <div className="proto-col col-12 protograph-app-map-and-list">
-            <div className="tabs-area">
-              {/* <div className="single-tab" id="map-tab" data-href="#map-area">
+            {/* <div className="tabs-area">
+              <div className="single-tab" id="map-tab" data-href="#map-area">
                 
                 MAP
-              </div> */}
+              </div>
               <div
                 className="single-tab active-tab"
                 id="list-tab"
@@ -448,7 +449,7 @@ class App extends React.Component {
                 mode={this.props.mode}
                 chartOptions={this.props.chartOptions}
               />
-            </div>
+            </div> */}
             <div className="tabs list-area active-area" id="list-area">
               <List
                 dataJSON={this.state.filteredDataJSON}

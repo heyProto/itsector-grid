@@ -166,6 +166,67 @@ export default class Filter extends React.Component {
     }, this.filterData)
   }
 
+  // handleReset(e) {
+  //   let updatedFilters = [];
+  //   let availableFilters = this.state.availableFilters;
+  //   let key = this.state.key;
+
+  //   Object.keys(availableFilters).forEach(filter => {
+  //     availableFilters[filter] = {
+  //       "count": this.state.dataJSON.length,
+  //       "value": [0,100],
+  //       "resettable": false
+  //     };
+  //     key[filter] = Math.random();
+  //   });
+
+  //   this.props.defaultFilters.forEach(filterCriterion => {
+      
+  //     let currentFilter = {
+  //       "key": filterCriterion.propName,
+  //       "value": filterCriterion.value
+  //     }
+  //     updatedFilters.push(currentFilter);
+  //     availableFilters[currentFilter.key] = {
+  //       "count": 0,
+  //       "value": filterCriterion.value,
+  //       "resettable": false
+  //     };
+  //     key[currentFilter.key] = Math.random();
+
+  //   });
+      
+  //   //retrieve entire set of data points
+  //   let data = this.state.dataJSON;
+
+  //   //apply all filters to data (not required if applied filters is empty)
+  //   let filteredData = updatedFilters.length > 0 ? 
+  //     data.filter(currentData => {
+  //       let result = true;
+  //       updatedFilters.forEach(currentFilter => {
+  //         if(this.applyPercentileBasedFilter(currentData[currentFilter.key], currentFilter.value)) {            
+  //           availableFilters[currentFilter.key].count += 1;           
+  //         } else {
+  //           result = false;
+  //           return;
+  //         }
+  //       });
+  //       return result;
+  //     })
+  //     :
+  //     data;
+
+  //   //update state and call onChange to trigger Map changes
+  //   this.setState({
+  //     key: key,
+  //     appliedFilters: updatedFilters,
+  //     availableFilters: availableFilters,
+  //     filteredData: filteredData
+  //   }, this.onChange);
+  
+  // }
+
+
   resetFilterItems() {
     let active_filters = document.querySelectorAll('.protograph-filter-item-detail.protograph-show-more-filters');
 
