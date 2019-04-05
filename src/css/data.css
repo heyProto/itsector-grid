@@ -1113,13 +1113,13 @@ span.role {
 
 .labels {
   display: flex;
-  width: 10%;
+  width: 12%;
   align-items: center;
   flex-direction: column;
 }
 
 .bars {
-  width: 65%;
+  width: 63%;
 }
 
 .bar, .alt-bar {
