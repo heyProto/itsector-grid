@@ -5,7 +5,7 @@ ProtoGraph.initDataApp = function() {
 
   x.init({
     selector: document.querySelector("#card-list-div"),
-    dataURL: "https://cdn.protograph.pykih.com/dfd8a041d1daa9be3f0a/data.json",
+    dataURL: "data.json",
     topoURL: "https://p.factchecker.in/data/india-topo.json",
     chartOptions: {
       height: 700,
@@ -23,45 +23,17 @@ ProtoGraph.initDataApp = function() {
     },
     filters: [
       {
-        alias: "Active on Twitter",
-        propName: "active",
+        alias: "Sector",
+        propName: "sector",
       },
       {
-        alias: "Tweeted about caste discrimination?",
-        propName: "caste_boolean",
+        alias: "Violation Type",
+        propName: "violation_type",
       },
       {
-        alias: "Tweeted about women's rights?",
-        propName: "womens_boolean",
-      },
-      {
-        alias: "Tweeted about religious intolerance?",
-        propName: "religious_boolean",
-      },
-      {
-        alias: "Tweeted about LGBTQI rights?",
-        propName: "lgbtqi_boolean",
-      },
-      {
-        alias: "Tweeted about FoE?",
-        propName: "foe_boolean",
-      },
-      {
-        alias: "Tweeted about farm crisis?",
-        propName: "farm_boolean",
-      },
-      {
-        alias: "Tweeted about workers' rights?",
-        propName: "workers_boolean",
-      },
-    ],
-    defaultFilters: [
-      {
-        alias: "Active on Twitter",
-        propName: "active",
-        value: "Yes"
-      }
-    ]
+        alias: "Relevant Authority",
+        propName: "relevant_authority",
+      }]
   });
   x.renderLaptop();
 };

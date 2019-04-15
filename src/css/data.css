@@ -244,7 +244,6 @@ body {
 }
 
 .region-outline {
-  cursor: pointer;
   stroke: #868383;
   stroke-width: 0.3px;
   fill-opacity: 1;
@@ -263,12 +262,12 @@ body {
   cursor: pointer;
   text-decoration: none;
 }
-
+/* 
 .region-outline:hover {
   stroke: black;
   stroke-width: 1px;
   z-index: 100;
-}
+} */
 
 .protogrpah-map-dulled-out {
   cursor: initial;

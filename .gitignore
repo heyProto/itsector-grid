@@ -3,4 +3,4 @@ node_modules
 __pycache__/
 simple-cors-http-server.py
 .vscode/tags
-.sass-cache
+.sass-cachenode_modules/

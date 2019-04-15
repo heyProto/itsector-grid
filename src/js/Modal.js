@@ -12,7 +12,7 @@ export default class Modal extends React.Component {
       languageTexts: undefined,
       siteConfigs: this.props.siteConfigs,
       activeCounter: 1,
-      tabs: ["Tweets"],
+      tabs: ["Overview", "Details", "Sources"],
       translateValue: 50,
       visible: false,
     };
@@ -99,142 +99,56 @@ export default class Modal extends React.Component {
     let data = this.props.data;
     switch (tab) {
       case 1:
-        let data2 = this.props.data;
-        let barWidth = 320;
-        let relevantSum = [data2.caste_discrimination,
-          data2.womens_rights,
-          data2.religious_intolerance,
-          data2.lgbtqi_rights,
-          data2.foe,
-          data2.farm_crisis,
-          data2.workers_rights].reduce((a, b) => a + b);
-
-        let widthFactor =
-        barWidth /
-        relevantSum;
-        let tweetFactor = 400/data2.no_of_tweets
         return (
-          <div className="graph-container">
-          <div className="graph-header">Topic relevant tweets of overall tweets</div>
-          <div className="graph">
-            <div className="tweet-graph">
-            <div className="bars" style={{width: '87%'}}><div className="bar-container">
-              <div
-                      className="bar"
-                      style={{ width: relevantSum * tweetFactor, minWidth: '5px' }}
-                    />
-                    <div
-                      className="alt-bar"
-                      style={{
-                        width: '100%'
-                      }}
-                    />
-              </div></div>
-               <div className="labels"> <div className="chart-label">{data2.no_of_tweets}</div></div>
-              </div>
-            
-          </div>
-          <div className="tweet-no-tag">{relevantSum} <img src="https://s3.ap-south-1.amazonaws.com/cdn.protograph/lib/twitter-solid-blue.png" width="20.5px" height="16.5px" /></div> 
-          <div className="graph-header">Percentage breakdown of topic relevant tweets</div>
-            <div className="graph">
-              <div className="categories">
-                <div className="category" style={{fontWeight: data2.caste_discrimination > 0 ? '800' : 'unset'}}>Caste Discrimination</div>
-                <div className="category" style={{fontWeight: data2.womens_rights > 0 ? '800' : 'unset'}}>Women's Rights</div>
-                <div className="category" style={{fontWeight: data2.religious_intolerance > 0 ? '800' : 'unset'}}>Religious Intolerance</div>
-                <div className="category" style={{fontWeight: data2.lgbtqi_rights > 0 ? '800' : 'unset'}}>LGBTQI Rights</div>
-                <div className="category" style={{fontWeight: data2.foe > 0 ? '800' : 'unset'}}>FoE</div>
-                <div className="category" style={{fontWeight: data2.farm_crisis > 0 ? '800' : 'unset'}}>Farm Crisis</div>
-                <div className="category" style={{fontWeight: data2.workers_rights > 0 ? '800' : 'unset'}}>Workers Rights</div>
-              </div>
-              <div className="bars">
-                <div className="bar-container">
-                  <div
-                    className="bar"
-                    style={{ width: data2.caste_discrimination * widthFactor }}
-                  />
-                  <div
-                    className="alt-bar"
-                    style={{
-                      width: barWidth - data2.caste_discrimination * widthFactor,
-                    }}
-                  />
+          <div className="card-content-div">
+            <div>  
+              <div className="full-width-parameter">
+                <div className="single-parameter">
+                  <div className="parameter-label">Summary</div>
+                  <p>{data.summary ? data.summary : 'Not available'}</p>
                 </div>
-                <div className="bar-container">
-                  <div
-                    className="bar"
-                    style={{ width: data2.womens_rights * widthFactor }}
-                  />
-                  <div
-                    className="alt-bar"
-                    style={{ width: barWidth - data2.womens_rights * widthFactor }}
-                  />
-                </div>
-                <div className="bar-container">
-                  <div
-                    className="bar"
-                    style={{ width: data2.religious_intolerance * widthFactor }}
-                  />
-                  <div
-                    className="alt-bar"
-                    style={{
-                      width: barWidth - data2.religious_intolerance * widthFactor,
-                    }}
-                  />
-                </div>
-                <div className="bar-container">
-                  <div
-                    className="bar"
-                    style={{ width: data2.lgbtqi_rights * widthFactor }}
-                  />
-                  <div
-                    className="alt-bar"
-                    style={{ width: barWidth - data2.lgbtqi_rights * widthFactor }}
-                  />
-                </div>
-                <div className="bar-container">
-                  <div
-                    className="bar"
-                    style={{ width: data2.foe * widthFactor }}
-                  />
-                  <div
-                    className="alt-bar"
-                    style={{ width: barWidth - data2.foe * widthFactor }}
-                  />
-                </div>
-                <div className="bar-container">
-                  <div
-                    className="bar"
-                    style={{ width: data2.farm_crisis * widthFactor }}
-                  />
-                  <div
-                    className="alt-bar"
-                    style={{ width: barWidth - data2.farm_crisis * widthFactor }}
-                  />
-                </div>
-                <div className="bar-container">
-                  <div
-                    className="bar"
-                    style={{ width: data2.workers_rights * widthFactor }}
-                  />
-                  <div
-                    className="alt-bar"
-                    style={{ width: barWidth - data2.workers_rights * widthFactor }}
-                  />
+                <div className="single-parameter">
+                  <div className="parameter-label">Judgment</div>
+                  <p>{data.judgment ? data.judgment : 'Not available'}</p>
                 </div>
               </div>
-              <div className="labels">
-                <div className="chart-label" style={{fontWeight: data2.caste_discrimination > 0 ? '800' : 'unset'}}>{data2.caste_discrimination} {data2.caste_discrimination > 0 ? '(' + Math.floor(data2.caste_discrimination*100/relevantSum) + '%)':''}</div>
-                <div className="chart-label" style={{fontWeight: data2.womens_rights > 0 ? '800' : 'unset'}}>{data2.womens_rights} {data2.womens_rights > 0 ? '(' + Math.floor(data2.womens_rights*100/relevantSum) + '%)':''}</div>
-                <div className="chart-label" style={{fontWeight: data2.religious_intolerance > 0 ? '800' : 'unset'}}>{data2.religious_intolerance} {data2.religious_intolerance > 0 ? '(' + Math.floor(data2.religious_intolerance*100/relevantSum) + '%)':''}</div>
-                <div className="chart-label" style={{fontWeight: data2.lgbtqi_rights > 0 ? '800' : 'unset'}}>{data2.lgbtqi_rights} {data2.lgbtqi_rights > 0 ? '(' + Math.floor(data2.lgbtqi_rights*100/relevantSum) + '%)':''}</div>
-                <div className="chart-label" style={{fontWeight: data2.foe > 0 ? '800' : 'unset'}}>{data2.foe} {data2.foe > 0 ? '(' + Math.floor(data2.foe*100/relevantSum) + '%)':''}</div>
-                <div className="chart-label" style={{fontWeight: data2.farm_crisis > 0 ? '800' : 'unset'}}>{data2.farm_crisis} {data2.farm_crisis > 0 ? '(' + Math.floor(data2.farm_crisis*100/relevantSum) + '%)':''}</div>
-                <div className="chart-label" style={{fontWeight: data2.workers_rights > 0 ? '800' : 'unset'}}>{data2.workers_rights} {data2.workers_rights > 0 ? '(' + Math.floor(data2.workers_rights*100/relevantSum) + '%)':''}</div>
+              </div>
+            </div>
+        );
+        case 2:
+        return (
+          <div className="card-content-div">
+            <div>  
+              <div className="full-width-parameter">
+                <div className="single-parameter">
+                  <div className="parameter-label">Value of fine</div>
+                  <p>{data.value ? data.value : 'Not available'}</p>
+                </div>
+                <div className="single-parameter">
+                  <div className="parameter-label">Violation location</div>
+                  <p>{data.violation_location ? data.violation_location : 'Not available'}</p>
+                </div>
+                <div className="single-parameter">
+                  <div className="parameter-label">Relevant authority</div>
+                  <p>{data.relevant_authority ? data.relevant_authority : 'Not available'}</p>
+                </div>
               </div>
             </div>
           </div>
         );
-
+        case 3:
+        return (
+          <div className="card-content-div">
+            <div>  
+              <div className="full-width-parameter">
+                <div className="single-parameter">
+                  <div className="parameter-label">Source of information</div>
+                  <p><a href={data.headline}>{data.source ? data.source : 'Not available'}</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
         break;
     }
   }
@@ -281,14 +195,10 @@ export default class Modal extends React.Component {
             <div id="protograph_div" className="protograph-col7-mode">
               <div className="news-card">
                 <div className="card-title">
-                  <span>{data.name}</span>
-                  <a href={data.twitter_handle} target="_blank"><div className="twitter-link"><img src="https://s3.ap-south-1.amazonaws.com/cdn.protograph/lib/twitter-solid-white.png" height="16.5px" width="20.5px" /> Visit Profile</div></a>
+                  <span>{data.company_name}</span>
                 </div>
-                {data.leadership_role},{" "}
-                {data.company_url ? <a href={data.company_url} target="_blank">
-                  {data.company}
-                </a> : data.company}
-                {/* <div className="card-tabs">{this.renderTabs()}</div> */}
+                {data.sector} - {data.violation_type}
+                <div className="card-tabs">{this.renderTabs()}</div>
                 <div className="tab-content">
                   {this.renderTabContent(this.state.activeCounter)}
                 </div>
@@ -350,14 +260,10 @@ export default class Modal extends React.Component {
             <div id="protograph_div" className="protograph-col7-mode">
               <div className="news-card">
                 <div className="card-title">
-                  {data.name}
-                  <a href={data.twitter_handle} target="_blank"><div className="twitter-link"><img src="https://s3.ap-south-1.amazonaws.com/cdn.protograph/lib/twitter-solid-white.png" height="16.5px" width="20.5px" /></div></a>
+                  {data.company_name}
                 </div>
-                {data.leadership_role},{" "}
-                {data.company_url ? <a href={data.company_url} target="_blank">
-                  {data.company}
-                </a> : data.company}
-                {/* <div className="card-tabs">{this.renderTabs()}</div> */}
+                {data.sector} - {data.violation_type}
+                <div className="card-tabs">{this.renderTabs()}</div>
                 <div className="tab-content">
                   {this.renderTabContent(this.state.activeCounter)}
                 </div>

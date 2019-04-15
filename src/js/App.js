@@ -262,49 +262,48 @@ class App extends React.Component {
       });
     }
 
-    let company = e.target
-        .closest(".protograph-trigger-modal")
+    let id = e.target
         .getAttribute("id"),
-      data = this.state.dataJSON.find(i => i.company === company);
+      data = this.state.dataJSON.find(i => i.id == id);
     this.setState({
       data: data,
       showModal: true,
     });
 
     //change url in address bar based on the point clicked
-    if (typeof history.pushState != "undefined") {
-      let url;
-      let currentURL = document.location.href;
-      console.log(currentURL)
-      if (currentURL.indexOf("#") !== -1) {
-        url = currentURL.substring(0, currentURL.indexOf("#")) + "#" + company;
-      } else if (currentURL[currentURL.length - 1] == "/") {
-        console.log(currentURL.substring(currentURL.lastIndexOf("#")))
-        url =
-          currentURL.substring(currentURL.lastIndexOf("#")) + "#" + company;
-      } else {
-        url =
-          currentURL.substring(currentURL.lastIndexOf("#" + 1)) +
-          "#" +
-          company;
-      }
-      let obj = { Title: company, Url: url };
-      history.pushState(obj, obj.Title, obj.Url);
-    } else {
-      alert("Browser does not support HTML5.");
-    }
+    // if (typeof history.pushState != "undefined") {
+    //   let url;
+    //   let currentURL = document.location.href;
+    //   console.log(currentURL)
+    //   if (currentURL.indexOf("#") !== -1) {
+    //     url = currentURL.substring(0, currentURL.indexOf("#")) + "#" + company;
+    //   } else if (currentURL[currentURL.length - 1] == "/") {
+    //     console.log(currentURL.substring(currentURL.lastIndexOf("#")))
+    //     url =
+    //       currentURL.substring(currentURL.lastIndexOf("#")) + "#" + company;
+    //   } else {
+    //     url =
+    //       currentURL.substring(currentURL.lastIndexOf("#" + 1)) +
+    //       "#" +
+    //       company;
+    //   }
+    //   let obj = { Title: company, Url: url };
+    //   history.pushState(obj, obj.Title, obj.Url);
+    // } else {
+    //   alert("Browser does not support HTML5.");
+    // }
   }
 
   closeModal() {
     //remove view cast id from url after modal is closed
-    let currentURL = document.location.href;
-    if (typeof history.pushState != "undefined") {
-      let url = currentURL.substring(0, currentURL.indexOf("#"));
-      let obj = { Title: "Land Conflict Watch", Url: url };
-      history.pushState(obj, obj.Title, obj.Url);
-    } else {
-      alert("Browser does not support HTML5.");
-    }
+    // let currentURL = document.location.href;
+    // if (typeof history.pushState != "undefined") {
+    //   let url = currentURL.substring(0, currentURL.indexOf("#"));
+    //   let obj = { Title: "Land Conflict Watch", Url: url };
+    //   history.pushState(obj, obj.Title, obj.Url);
+    // } else {
+    //   alert("Browser does not support HTML5.");
+    // }
     this.setState({
       iframeURL: undefined,
       showModal: false,
@@ -411,7 +410,9 @@ class App extends React.Component {
                   </div>
                 </a>
               </div>
-              <div className="summary-text">An analysis of tweets by Indian business leaders in support of most relevant social issues from 2010 - 2018 based on caste discrimination, women’s rights, religious intolerance, freedom of expression, LGBTQI rights, farm crisis and workers’ rights. <a href="https://www.responsiblebiz.org/stories/ceos-of-top-indian-companies-choose-to-remain-silent-on-civil-and-human-rights-issues.html" target="_blank">Read background.</a></div>
+              <div className="summary-text">An analysis of tweets by Indian business leaders in support of most relevant social issues from 2010 - 2018 based on caste discrimination, women’s rights, religious intolerance, freedom of expression, LGBTQI rights, farm crisis and workers’ rights. <br />
+<a href="https://www.responsiblebiz.org/stories/ceos-of-top-indian-companies-choose-to-remain-silent-on-civil-and-human-rights-issues.html" target="_blank">Read background.</a> &nbsp;
+<a href="https://www.responsiblebiz.org/stories/indian-ceos-stick-to-script-don-t-tweet-on-issues.html" target="_blank">Read analysis.</a></div>
             </div>
             <Filter
               configurationJSON={this.props.filterConfigurationJSON}
@@ -425,20 +426,20 @@ class App extends React.Component {
             />
           </div>
           <div className="proto-col col-12 protograph-app-map-and-list">
-            {/* <div className="tabs-area">
-              <div className="single-tab" id="map-tab" data-href="#map-area">
+            <div className="tabs-area">
+              <div className="single-tab active-tab" id="map-tab" data-href="#map-area">
                 
                 MAP
               </div>
               <div
-                className="single-tab active-tab"
+                className="single-tab"
                 id="list-tab"
                 data-href="#list-area"
               >
                 LIST
               </div>
             </div>
-            <div className="tabs map-area" id="map-area">
+            <div className="tabs map-area active-area" id="map-area">
               <div className="map-hint-text">
                 Click on the circle to see details of the incident
               </div>
@@ -449,8 +450,8 @@ class App extends React.Component {
                 mode={this.props.mode}
                 chartOptions={this.props.chartOptions}
               />
-            </div> */}
-            <div className="tabs list-area active-area" id="list-area">
+            </div>
+            <div className="tabs list-area" id="list-area">
               <List
                 dataJSON={this.state.filteredDataJSON}
                 mode={this.props.mode}

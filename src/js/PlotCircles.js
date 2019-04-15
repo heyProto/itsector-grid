@@ -2,6 +2,7 @@ import React from 'react';
 import Util from '../js/utility';
 
 class PlotCircles extends React.Component { 
+  
   render() {
     if (this.props.dataJSON === undefined) {
       return(<div></div>)
@@ -9,13 +10,14 @@ class PlotCircles extends React.Component {
       const {colorCategory, defaultCircleColor} = this.props.chartOptions;
       const circles = this.props.dataJSON.map((point, i) => {
         return(
-          <circle id="map_circles"
-            className={`map-circles circle-${point.district}-${point.state}`}
+          <circle id={point.id}
+            className={`map-circles circle-${point.id}`}
             key={i} 
-            cx={this.props.projection([point.longitude, point.latitude])[0]} 
-            cy={this.props.projection([point.longitude, point.latitude])[1]} 
+            cx={this.props.projection([point.long, point.lat])[0]} 
+            cy={this.props.projection([point.long, point.lat])[1]} 
             r={4}
-            fill={defaultCircleColor}>
+            fill={defaultCircleColor}
+            onClick={this.props.showModal}>
           </circle>
         )
       });
