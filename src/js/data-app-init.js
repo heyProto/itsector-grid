@@ -5,8 +5,8 @@ ProtoGraph.initDataApp = function() {
 
   x.init({
     selector: document.querySelector("#card-list-div"),
-    dataURL: "data.json",
-    topoURL: "https://p.factchecker.in/data/india-topo.json",
+    dataURL: "https://cdn.protograph.pykih.com/69869f9d017573b26162/data.json",
+    topoURL: "https://cdn.protograph.pykih.com/69869f9d017573b26162/india-topo.json",
     chartOptions: {
       height: 700,
       defaultCircleColor: ProtoGraph.site["house_colour"],
