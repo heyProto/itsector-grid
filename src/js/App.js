@@ -410,7 +410,7 @@ class App extends React.Component {
                   </div>
                 </a>
               </div>
-              <div className="summary-text"></div>
+              {/* <div className="summary-text"></div> */}
             </div>
             <Filter
               configurationJSON={this.props.filterConfigurationJSON}
@@ -429,13 +429,13 @@ class App extends React.Component {
 
                 MAP
               </div>
-              <div
+              {/* <div
                 className="single-tab"
                 id="list-tab"
                 data-href="#list-area"
               >
                 LIST
-              </div>
+              </div> */}
             </div>
             <div className="tabs map-area active-area" id="map-area">
               <div className="map-hint-text">
@@ -449,13 +449,13 @@ class App extends React.Component {
                 chartOptions={this.props.chartOptions}
               />
             </div>
-            <div className="tabs list-area" id="list-area">
+            {/* <div className="tabs list-area" id="list-area">
               <List
                 dataJSON={this.state.filteredDataJSON}
                 mode={this.props.mode}
                 showModal={this.showModal}
               />
-            </div>
+            </div> */}
             <Modal
               showModal={this.state.showModal}
               closeModal={this.closeModal}

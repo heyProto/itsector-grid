@@ -1,5 +1,4 @@
-[
-  {
+[{
     "id": 1,
     "company_name": "Wipro",
     "sector": "IT, ITeS",
@@ -13,7 +12,9 @@
     "judgment": "Wipro lost this case ",
     "value": "Not available",
     "headline": "https://www.ndtv.com/blog/shreya-ukil-on-her-big-battle-with-wipro-over-sexism-1405435",
-    "source": "NDTV"
+    "source": "NDTV",
+    "researcher": "",
+    "company_url": "https://www.responsiblebiz.org/stories/wipro-62.html"
   },
   {
     "id": 2,
@@ -29,7 +30,9 @@
     "judgment": "The employee was fired after the case become public through Twitter",
     "value": "Employee was fired",
     "headline": "https://www.thenewsminute.com/article/tech-mahindra-fires-woman-accused-bigotry-homophobia-former-employee-88464",
-    "source": "The News Minute"
+    "source": "The News Minute",
+    "researcher": "",
+    "company_url": "https://www.responsiblebiz.org/stories/tech-mahindra-139.html"
   },
   {
     "id": 3,
@@ -45,7 +48,9 @@
     "judgment": "Pending agaisnt the security agency",
     "value": "NA",
     "headline": "https://www.hindustantimes.com/analysis/dealing-with-rape-and-murder-on-india-s-it-campuses/story-UCDfUSnIb32lKB40Z8aScP.html",
-    "source": "Hindustan Times"
+    "source": "Hindustan Times",
+    "researcher": "",
+    "company_url": "https://www.responsiblebiz.org/stories/infosys-59.html"
   },
   {
     "id": 4,
@@ -61,7 +66,9 @@
     "judgment": "Pending",
     "value": "NA",
     "headline": "https://economictimes.indiatimes.com/tech/ites/infosys-faces-lawsuit-in-us-for-not-paying-overtime/articleshow/65747843.cms",
-    "source": "The Economic Times"
+    "source": "The Economic Times",
+    "researcher": "",
+    "company_url": "https://www.responsiblebiz.org/stories/infosys-59.html"
   },
   {
     "id": 5,
@@ -77,7 +84,9 @@
     "judgment": "Pending",
     "value": "NA",
     "headline": "https://www.bloomberg.com/news/articles/2017-12-27/india-s-tcs-faces-u-s-trial-in-anti-american-bias-case",
-    "source": "Bloomberg"
+    "source": "Bloomberg",
+    "researcher": "",
+    "company_url": "https://www.responsiblebiz.org/stories/tata-consultancy-services-limited-65.html"
   },
   {
     "id": 6,
@@ -93,7 +102,9 @@
     "judgment": "Pending",
     "value": "NA",
     "headline": "https://timesofindia.indiatimes.com/business/india-business/former-wipro-employee-files-discrimination-case-against-company/articleshow/63553679.cms",
-    "source": "The Time of India"
+    "source": "The Time of India",
+    "researcher": "",
+    "company_url": "https://www.responsiblebiz.org/stories/wipro-62.html"
   },
   {
     "id": 7,
@@ -109,10 +120,12 @@
     "judgment": "Additional Labour Court Presiding Officer S Nambirajan also directed the firm to reinstate the petitioner with continuity of service and to pay full back wages and all other benefits from the date of dismissal to the date of reinstatement.",
     "value": "Wages and benefits due to the employee- amount is not known",
     "headline": "https://www.business-standard.com/article/companies/chennai-court-orders-hcl-to-reinstate-sacked-employee-116051000750_1.html",
-    "source": "Business Standard"
+    "source": "Business Standard",
+    "researcher": "",
+    "company_url": "https://www.responsiblebiz.org/stories/hcl-technologies-106.html"
   },
   {
-    "id": 8,
+    "id": 9,
     "company_name": "TCS",
     "sector": "IT, ITeS",
     "violation_type": "Harassment and Abuse ",
@@ -125,10 +138,12 @@
     "judgment": "Internal investigation ",
     "value": "Employee was fired",
     "headline": "https://economictimes.indiatimes.com/tech/ites/tcs-staffer-sacked-for-social-media-threats/articleshow/66063401.cms",
-    "source": "The Economic Times"
+    "source": "The Economic Times",
+    "researcher": "",
+    "company_url": "https://www.responsiblebiz.org/stories/tata-consultancy-services-limited-65.html"
   },
   {
-    "id": 9,
+    "id": 11,
     "company_name": "Hindustan Unilever",
     "sector": "FMCG Textile and Consumer Durables",
     "violation_type": "Environmental",
@@ -141,10 +156,12 @@
     "judgment": "In 2016, the Company agreed to provide undisclosed ex-gratia payments to 591 affected victims on 'humanitarian' grounds, which was recorded before the Madras HC. Pressure then mounted for cleaning up and soil remediation of mercury contaminated sites and adjoing forest areas in the region.\n",
     "value": "",
     "headline": "https://qz.com/india/634953/hindustan-unilever-is-finally-paying-workers-who-say-they-were-poisoned-by-mercury-but-its-not-enough/\n",
-    "source": "Quartz"
+    "source": "Quartz",
+    "researcher": "",
+    "company_url": "https://www.responsiblebiz.org/stories/hindustan-unilever-142.html"
   },
   {
-    "id": 10,
+    "id": 12,
     "company_name": "Hindustan Unilever",
     "sector": "FMCG Textile and Consumer Durables",
     "violation_type": "Labour Rights",
@@ -157,10 +174,12 @@
     "judgment": "",
     "value": "",
     "headline": "https://www.business-standard.com/article/companies/workers-of-hul-protest-over-wages-outside-head-office-114110100004_1.html",
-    "source": "Business Standard"
+    "source": "Business Standard",
+    "researcher": "",
+    "company_url": "https://www.responsiblebiz.org/stories/hindustan-unilever-142.html"
   },
   {
-    "id": 11,
+    "id": 13,
     "company_name": "Hindustan Unilever",
     "sector": "FMCG Textile and Consumer Durables",
     "violation_type": "Freedom of Association",
@@ -173,10 +192,12 @@
     "judgment": "In October 2007, the IUF filed a case against Hindustan Unilever Ltd. with the UK NCP, claiming that the management’s actions constitute a breach of Articles of the OECD guidelines. In March 2008 the HLWU had filed a writ petition against the Assam Government as well as the HUL Management seeking a restraining order against the HUSS & HUL Management for signing any wage settlement. On 24th March the Guwahati High Court passed an Interim Order in favour of the HLWU.",
     "value": "",
     "headline": "https://www.indiaretailing.com/2007/07/16/retail/hindustan-unilever-halts-factory-operations-in-assam/",
-    "source": "India Retailing"
+    "source": "India Retailing",
+    "researcher": "",
+    "company_url": "https://www.responsiblebiz.org/stories/hindustan-unilever-142.html"
   },
   {
-    "id": 12,
+    "id": 14,
     "company_name": "ITC",
     "sector": "FMCG Textile and Consumer Durables",
     "violation_type": "Labour Rights",
@@ -189,10 +210,12 @@
     "judgment": "",
     "value": "",
     "headline": "https://www.financialexpress.com/archive/itc-foods-ranjangaon-workers-go-on-strike-demanding-wage-hike/1140315/",
-    "source": "Financial Express"
+    "source": "Financial Express",
+    "researcher": "",
+    "company_url": "https://www.responsiblebiz.org/stories/itc-152.html"
   },
   {
-    "id": 13,
+    "id": 15,
     "company_name": "Nestle India",
     "sector": "FMCG Textile and Consumer Durables",
     "violation_type": "Labour Rights",
@@ -205,10 +228,12 @@
     "judgment": "The management of the Nestle Pantangar factory was finally forced into mediation by the continued strike action by 150 permanent workers that was supported by 600 contract workers. The Assistant Labour Commissioner (ALC) facilitated negotiations between management and union representatives that was signed by all three parties.Despite attacks on the union and attempts by management to stop the union’s registration, the union succeeded in winning legal recognition and immediately joined the IUF-affiliated Federation. With the support of the Federation the Nestlé Pantnagar union won the right to wage bargaining.",
     "value": "",
     "headline": "https://www.business-standard.com/article/companies/nestle-govt-attempt-to-end-strike-109050900026_1.html",
-    "source": "Business Standard"
+    "source": "Business Standard",
+    "researcher": "",
+    "company_url": "https://www.responsiblebiz.org/stories/nestle-india-74.html"
   },
   {
-    "id": 14,
+    "id": 16,
     "company_name": "Nestle India",
     "sector": "FMCG Textile and Consumer Durables",
     "violation_type": "Freedom of Association",
@@ -221,10 +246,12 @@
     "judgment": "This led to an escalation of the campaign, and following continuous pressure at local, national and international levels, Nestlé India finally entered into wage negotiations - a major step towards genuine recognition and respect of trade union rights after decades of rights violations.",
     "value": "",
     "headline": "http://cms.iuf.org/?q=node/170 ",
-    "source": "IUF"
+    "source": "IUF",
+    "researcher": "",
+    "company_url": "https://www.responsiblebiz.org/stories/nestle-india-74.html"
   },
   {
-    "id": 15,
+    "id": 17,
     "company_name": "Bharat Electronics Ltd",
     "sector": "Capital Goods",
     "violation_type": "Labour Rights",
@@ -237,10 +264,12 @@
     "judgment": "",
     "value": "",
     "headline": "https://www.business-standard.com/article/companies/bel-workers-to-strike-work-113120800798_1.html",
-    "source": "Business Standard"
+    "source": "Business Standard",
+    "researcher": "",
+    "company_url": "https://www.responsiblebiz.org/stories/bharat-electronics-123.html"
   },
   {
-    "id": 16,
+    "id": 18,
     "company_name": "Bharat Electronics Ltd",
     "sector": "Capital Goods",
     "violation_type": "Labour Rights",
@@ -253,6 +282,8 @@
     "judgment": "",
     "value": "",
     "headline": "https://news.webindia123.com/news/articles/India/20160229/2806156.html",
-    "source": "Web India 123"
+    "source": "Web India 123",
+    "researcher": "",
+    "company_url": "https://www.responsiblebiz.org/stories/bharat-electronics-123.html"
   }
 ]

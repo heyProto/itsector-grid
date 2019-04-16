@@ -42,6 +42,10 @@
 	display: inline-block;
 }
 
+.card-subtitle {
+	font-size: 14px;
+}
+
 .title-pretext {
 	font-size: 13px;
 	margin-bottom: 10px;
@@ -97,6 +101,11 @@
 	color: #777;
 	line-height: 17px;
 	margin-top: 5px;
+}
+
+.tab-content {
+    overflow-y: scroll;
+    height: 365px;
 }
 
 .parameter-name {

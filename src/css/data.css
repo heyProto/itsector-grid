@@ -167,7 +167,6 @@ body {
 }
 
 .single-tab {
-  font-size: 16px;
   font-family: AvenirLTStd-Book;
   border-bottom: 3px solid white;
   display: inline-block;
@@ -934,7 +933,7 @@ body {
 }
 
 .news-card .card-tabs .single-tab {
-  font-size: 12px;
+  font-size: 12px !important;
   color: #9a9a9a;
   text-transform: uppercase;
   width: 108px;
@@ -1058,133 +1057,8 @@ body {
   width: 300px;
 }
 
-span.role {
-  font-size: 10px;
-}
-
-.twitter-link {
-  background: rgb(70, 157, 229);
-    border: 1px solid rgb(67, 151, 219);
-    padding: 3px 4px;
-    border-radius: 4px;
-    color: white;
-    font-size: 14px;
-    text-decoration: none;
-    display: inline-flex;
-    float: right;
-    width: 110px;
-    align-items: center;
-    justify-content: space-evenly;
-}
-
-/* chart code */
-.graph {
-  display: flex;
-  justify-content: space-between;
-}
-
-
-.graph-header {
-    margin-top: 20px;
-    color: rgba(50, 138, 171);
-    font-weight: 600;
-}
-
-.tweet-graph {
-  display: flex;
-  justify-content: space-between;
-    width: 100%;
-}
-
-.tweet-no-tag {
-  width: 52px;
-  height: 30px;
-  background-color: #fafafa;
-  border: 1px solid #eeeeee;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-}
-
-.categories {
-  width: 25%;
-}
-
-.labels {
-  display: flex;
-  width: 12%;
-  align-items: center;
-  flex-direction: column;
-}
-
-.bars {
-  width: 63%;
-}
-
-.bar, .alt-bar {
-  height: 6px;
-  border-radius: 100px;
-}
-
-.category {
-  display: flex;
-  font-size: 13px;
-  height: 30px;
-  align-items: center;
-}
-
-.bar-container {
-  display: flex;
-  height: 30px;
-  align-items: center;
-}
-
-.bar {
-  background-image: linear-gradient(to right, rgb(140, 208, 226), rgb(46, 127, 180));
-}
-
-.alt-bar {
-  background-color: rgb(241, 241, 241);
-}
-
-.chart-label {
-  height: 30px;
-  display: flex;
-  align-items: center;
-  font-size: 13px;
-}
-
-
-.tooltip {
+circle {
   cursor: pointer;
-  position: relative;
-
-}
-
-.tooltip::after {
-  background: #333;
-    background: rgba(0,0,0,.8);
-    border-radius: 5px;
-    bottom: 26px;
-    color: #fff;
-    content: attr(title);
-    left: 20%;
-    padding: 5px 15px;
-    position: absolute;
-    z-index: 98;
-    width: max-content;
-
-}
-
-.tooltip::before{
-  border: solid;
-  border-color: #333 transparent;
-  border-width: 6px 6px 0 6px;
-  bottom: 20px;
-  content: "";
-  left: 50%;
-  position: absolute;
-  z-index: 99;
 }
 
 /* Note the above height and width are just samples. Change it as per the usecase. */

@@ -195,9 +195,9 @@ export default class Modal extends React.Component {
             <div id="protograph_div" className="protograph-col7-mode">
               <div className="news-card">
                 <div className="card-title">
-                  <span>{data.company_name}</span>
+                  <a href={data.company_url}>{data.company_name}</a>
                 </div>
-                {data.sector} - {data.violation_type}
+                <span class="card-subtitle">{data.sector} - {data.violation_type}</span>
                 <div className="card-tabs">{this.renderTabs()}</div>
                 <div className="tab-content">
                   {this.renderTabContent(this.state.activeCounter)}
@@ -260,9 +260,9 @@ export default class Modal extends React.Component {
             <div id="protograph_div" className="protograph-col7-mode">
               <div className="news-card">
                 <div className="card-title">
-                  {data.company_name}
+                <a href={data.company_url} target="_blank">{data.company_name}</a>
                 </div>
-                {data.sector} - {data.violation_type}
+                <span class="card-subtitle">{data.sector} - {data.violation_type}</span>
                 <div className="card-tabs">{this.renderTabs()}</div>
                 <div className="tab-content">
                   {this.renderTabContent(this.state.activeCounter)}

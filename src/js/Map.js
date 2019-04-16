@@ -110,7 +110,6 @@ class MapsCard extends React.Component {
       strokeWidth: 0.675
     }
     const {projection, regions, outlines, country, path, offsetWidth, offsetHeight, matrix, dragging} = this.state;
-    console.log(this.props.showModal)
     return(
       <div>
       <div className="map-nav">
