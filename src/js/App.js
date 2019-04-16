@@ -410,9 +410,7 @@ class App extends React.Component {
                   </div>
                 </a>
               </div>
-              <div className="summary-text">An analysis of tweets by Indian business leaders in support of most relevant social issues from 2010 - 2018 based on caste discrimination, women’s rights, religious intolerance, freedom of expression, LGBTQI rights, farm crisis and workers’ rights. <br />
-<a href="https://www.responsiblebiz.org/stories/ceos-of-top-indian-companies-choose-to-remain-silent-on-civil-and-human-rights-issues.html" target="_blank">Read background.</a> &nbsp;
-<a href="https://www.responsiblebiz.org/stories/indian-ceos-stick-to-script-don-t-tweet-on-issues.html" target="_blank">Read analysis.</a></div>
+              <div className="summary-text"></div>
             </div>
             <Filter
               configurationJSON={this.props.filterConfigurationJSON}
@@ -428,7 +426,7 @@ class App extends React.Component {
           <div className="proto-col col-12 protograph-app-map-and-list">
             <div className="tabs-area">
               <div className="single-tab active-tab" id="map-tab" data-href="#map-area">
-                
+
                 MAP
               </div>
               <div
