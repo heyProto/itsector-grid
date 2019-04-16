@@ -1247,22 +1247,13 @@ circle {
     width: 100vw;
   }
 
-  .bars {
-    width: 50%;
+  .news-card .card-tabs .single-tab {
+    width: auto;
   }
 
-  .categories {
-    width: 30%;
-  }
-
-  .labels {
-    width: 20%;
-  }
-
-  .category {
-    font-size: 12px;
-    line-height: 1;
-    padding-right: 2px;
+  .tab-content {
+    height: 345px;
+    overflow-y: scroll;
   }
 
   .protograph-close-modal {
@@ -1270,9 +1261,4 @@ circle {
     right: 15px;
   }
 
-  .twitter-link {
-    width: 25px;
-    margin-left: 10px;
-    float: none;
-  }
 }
