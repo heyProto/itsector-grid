@@ -62,22 +62,20 @@ class ListCards extends React.Component {
   }
 
   render() {
-    console.log(this.props.showModal, 'showModal')
     if (this.props.dataJSON.length === 0) {
-      return(<h3>No company head has tweeted on this issue.</h3>)
+      return(<h3>No data points to show.</h3>)
     } else {
       let cards = this.state.cardsVisible.map((card, i) => {
         let class_name = (((i+1)% this.state.cardsInRow) == 0) ? "protograph-card div-without-margin-right" : "protograph-card";
         return(
             <div
-              id={`${card.company}`}
+              data-id={card.id}
               onClick={this.props.showModal}
-              data-viewcast_id={card.view_cast_id}
               className={`protograph-grid-card protograph-trigger-modal ${class_name}`}
               >
               <div className="proto-card-content" data-iframe_url={card.iframe_url}>
-                <div className="proto-card-location">fjshj</div>
-                  <div className="proto-context"><span className="role">{card.leadership_role}</span><br></br> {card.company}</div>
+                <div className="proto-card-location">{card.company_name}</div>
+                  <div className="proto-context"><span className="role">{card.sector}</span><br></br></div>
               </div>
           </div>
         )

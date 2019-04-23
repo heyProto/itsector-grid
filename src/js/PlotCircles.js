@@ -10,7 +10,8 @@ class PlotCircles extends React.Component {
       const {colorCategory, defaultCircleColor} = this.props.chartOptions;
       const circles = this.props.dataJSON.map((point, i) => {
         return(
-          <circle id={point.id}
+          <circle 
+            data-id={point.id}
             className={`map-circles circle-${point.id}`}
             key={i} 
             cx={this.props.projection([point.long, point.lat])[0]} 
