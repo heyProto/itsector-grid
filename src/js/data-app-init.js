@@ -27,6 +27,10 @@ ProtoGraph.initDataApp = function() {
         propName: "sector",
       },
       {
+        alias: "Company Name",
+        propName: "company_name",
+      },
+      {
         alias: "Violation Type",
         propName: "violation_type",
       },
